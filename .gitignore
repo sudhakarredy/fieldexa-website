@@ -10,5 +10,9 @@ website/.wrangler/
 website/.dev.vars
 website/.env
 
+node_modules/
+dist/
+.wrangler/
+
 .DS_Store
 Thumbs.db

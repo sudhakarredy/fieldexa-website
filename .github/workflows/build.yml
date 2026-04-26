@@ -21,9 +21,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: website/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --prefix website
 
       - name: Lint
         run: npm run lint
@@ -34,9 +35,9 @@ jobs:
       - name: Check build output
         run: |
           if [ -d dist ]; then
-            echo "✅ Build succeeded. Output in dist/"
+            echo "Build succeeded. Output in dist/"
             du -sh dist/
           else
-            echo "❌ Build failed - no dist/ directory"
+            echo "Build failed - no dist/ directory"
             exit 1
           fi

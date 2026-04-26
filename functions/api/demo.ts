@@ -1,0 +1,1 @@
+export { onRequestPost } from '../../website/functions/api/demo'

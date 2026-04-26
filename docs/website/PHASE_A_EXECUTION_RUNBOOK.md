@@ -13,13 +13,15 @@ The following items have been prepared and committed to the repository:
 
 ### Configuration Files Created
 ```
-website/
-├── .github/
-│   ├── pull_request_template.md          ✅ Claims verification checklist
-│   └── workflows/
-│       └── build.yml                     ✅ Automated build and lint
-├── .gitignore                            ✅ Updated with .env, .dev.vars
-└── wrangler.toml                         ✅ Cloudflare Functions config
+.github/
+├── pull_request_template.md              ✅ Claims verification checklist
+└── workflows/
+   └── build.yml                         ✅ Automated build and lint
+functions/
+└── api/
+   └── demo.ts                           ✅ Cloudflare Pages root entrypoint
+package.json                              ✅ Root build entrypoint for Cloudflare Pages
+.gitignore                                ✅ Updated with env and build artifacts
 ```
 
 ### Documentation Created
@@ -157,6 +159,8 @@ Action: Manual in Cloudflare UI
 - Build output directory: `dist`
 - Root directory: (leave blank)
 - Environment variables: (skip for now, add in next step)
+
+The repository root now contains the Cloudflare build entrypoint and a root `functions/` directory, so leaving the root directory blank is correct.
 
 **Deploy:**
 - Click **Save and Deploy**

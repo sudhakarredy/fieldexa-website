@@ -16,8 +16,8 @@
 - [ ] No unsupported testimonials, certifications, or metrics are present
 
 ## Testing
-- [ ] Local build passes: `npm run build`
-- [ ] Local lint passes: `npm run lint`
+- [ ] Root build passes: `npm run build`
+- [ ] Root lint passes: `npm run lint`
 - [ ] Contact form tested in preview deployment
 - [ ] Responsive design verified on mobile/tablet/desktop
 

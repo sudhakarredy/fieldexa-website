@@ -22,19 +22,23 @@ The following Phase A items have been completed by the agent:
   - Lint validation required
   - Runs on Node 20.x
 
-### 2. Git Configuration ✅
+### 2. Cloudflare Root Build Compatibility ✅
+- [x] **Root package.json:** build entrypoint for Cloudflare Pages
+- [x] **Root functions/api/demo.ts:** Pages Functions entrypoint at repo root
+
+### 3. Git Configuration ✅
 - [x] **Updated .gitignore:** 
   - Excludes node_modules, dist, .env, .dev.vars
   - Excludes Cloudflare build artifacts
   - Ready for GitHub publication
 
-### 3. Cloudflare Configuration ✅
+### 4. Cloudflare Configuration ✅
 - [x] **wrangler.toml:** Created for Cloudflare Pages Functions
   - Defines production and staging environments
   - Maps domain routing
   - Configures build output
 
-### 4. Documentation ✅
+### 5. Documentation ✅
 - [x] **PHASE_A_QUICK_START.md:** 2-minute execution overview
 - [x] **PHASE_A_GITHUB_CLOUDFLARE_SETUP.md:** Step-by-step detailed guide
 - [x] **Updated README.md:** Added links to Phase A docs
@@ -169,7 +173,7 @@ Use this to track progress:
 ## Reference Files
 
 All documentation and config files are located in:
-- [website/.github/](../../../website/.github/) - GitHub configuration
+- [../../../.github/](../../../.github/) - GitHub configuration
 - [website/.gitignore](../../../website/.gitignore) - Git exclusions
 - [website/wrangler.toml](../../../website/wrangler.toml) - Cloudflare configuration
 - [PHASE_A_QUICK_START.md](./PHASE_A_QUICK_START.md) - Quick reference

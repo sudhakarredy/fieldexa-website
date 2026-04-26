@@ -123,6 +123,8 @@ dist
 
 **Root directory:** Leave blank (defaults to repository root)
 
+The repository root contains the Cloudflare build entrypoint (`package.json`) and the Pages Functions entrypoint (`functions/api/demo.ts`), so a blank root directory is the intended configuration.
+
 **Node.js version:** 20.x (Cloudflare Pages recommends)
 
 ### 3d. Save and Deploy
@@ -251,8 +253,8 @@ Then proceed to **Phase B: Domain and Environment Configuration**.
 
 ## Reference Files
 
-- PR template: [website/.github/pull_request_template.md](../../website/.github/pull_request_template.md)
-- Build workflow: [website/.github/workflows/build.yml](../../website/.github/workflows/build.yml)
+- PR template: [../../.github/pull_request_template.md](../../.github/pull_request_template.md)
+- Build workflow: [../../.github/workflows/build.yml](../../.github/workflows/build.yml)
 - Environment template: [website/.env.example](../../website/.env.example)
 - Function code: [website/functions/api/demo.ts](../../website/functions/api/demo.ts)
 
