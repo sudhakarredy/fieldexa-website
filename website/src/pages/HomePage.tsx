@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PageSection } from '../components/PageSection'
-import { corePillars, inRolloutFeatures } from '../content'
+import { corePillars, inRolloutFeatures, solutionTracks } from '../content'
 
 export function HomePage() {
   return (
@@ -8,7 +8,7 @@ export function HomePage() {
       <PageSection
         eyebrow="FIELDexa Koru"
         title="Modern Agriculture Intelligence for Sustainable and Traceable Operations"
-        subtitle="A conversion-ready scaffold based on approved FIELDexa messaging, brand assets, and public-content safety controls."
+        subtitle="FIELDexa helps agriculture teams coordinate field operations, maintain connected records, and build traceability-ready workflows from one operational platform."
       >
         <div className="hero-actions">
           <Link to="/contact" className="cta-button">
@@ -26,6 +26,17 @@ export function HomePage() {
             <article key={pillar.title} className="info-card">
               <h2>{pillar.title}</h2>
               <p>{pillar.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="page-section">
+        <div className="container cards-grid">
+          {solutionTracks.map((track) => (
+            <article key={track.title} className="info-card">
+              <h2>{track.title}</h2>
+              <p>{track.description}</p>
             </article>
           ))}
         </div>

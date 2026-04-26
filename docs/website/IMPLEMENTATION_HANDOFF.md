@@ -56,24 +56,16 @@ Use `docs/website/IMPLEMENTATION_TODO.md` as the single daily execution tracker 
 
 ---
 
-## Phase A: Next Steps (Ready for Execution)
+## Current Execution State
 
-**Phase A** covers GitHub and Cloudflare deployment setup. The following resources have been prepared:
+**Phase A is complete.** Repository setup, Cloudflare Pages deployment, domain routing, environment configuration, and demo form delivery have been verified.
 
-- **[PHASE_A_STATUS_REPORT.md](./PHASE_A_STATUS_REPORT.md)** - Current progress and what's automated vs manual
-- **[PHASE_A_QUICK_START.md](./PHASE_A_QUICK_START.md)** - 2-minute execution overview
-- **[PHASE_A_EXECUTION_RUNBOOK.md](./PHASE_A_EXECUTION_RUNBOOK.md)** - Day-by-day step-by-step guide (START HERE)
-- **[PHASE_A_GITHUB_CLOUDFLARE_SETUP.md](./PHASE_A_GITHUB_CLOUDFLARE_SETUP.md)** - Detailed technical reference
+**Phase B is now active.** Focus execution on content completion and public-claim readiness:
 
-**Automated (Agent-Completed):**
-- ✅ GitHub PR template with claims verification checklist
-- ✅ GitHub Actions workflow for build and lint
-- ✅ Updated .gitignore for environment files
-- ✅ Cloudflare wrangler.toml configuration
-- ✅ Comprehensive Phase A documentation
+1. Finalize legal page text.
+2. Finalize Home, Solutions, Platform, and Impact page copy.
+3. Curate approved screenshots and captions.
+4. Add anonymized case-study narratives.
+5. Verify all public claims in [CLAIMS_MATRIX.md](./CLAIMS_MATRIX.md).
 
-**Ready for User Execution:**
-- 1.5 hours of manual setup (GitHub repo, branch protection, Cloudflare connection, env vars)
-- 30 minutes of testing (preview and production deployments)
-
-**Start with:** [PHASE_A_EXECUTION_RUNBOOK.md](./PHASE_A_EXECUTION_RUNBOOK.md) for hour-by-hour action items.
+Use [IMPLEMENTATION_TODO.md](./IMPLEMENTATION_TODO.md) as the current execution tracker.

@@ -1,25 +1,20 @@
 import { PageSection } from '../components/PageSection'
+import { caseStudyStories } from '../content'
 
 export function CaseStudiesPage() {
   return (
     <PageSection
       eyebrow="Case Studies"
       title="Anonymized Workflow Stories"
-      subtitle="Customer-identifying details are intentionally withheld until publishing approvals are complete."
+      subtitle="Illustrative scenarios show how FIELDexa can support operations without disclosing customer identity, confidential data, or unapproved performance claims."
     >
       <div className="cards-grid">
-        <article className="info-card">
-          <h2>Cluster Alert Response Workflow</h2>
-          <p>From field issue capture to coordinated mass action management.</p>
-        </article>
-        <article className="info-card">
-          <h2>Traceability Record Preparation</h2>
-          <p>Data pathways that support verifiable operational records.</p>
-        </article>
-        <article className="info-card">
-          <h2>Input to Harvest Visibility</h2>
-          <p>Linked operational events to improve season-level planning confidence.</p>
-        </article>
+        {caseStudyStories.map((story) => (
+          <article key={story.title} className="info-card">
+            <h2>{story.title}</h2>
+            <p>{story.summary}</p>
+          </article>
+        ))}
       </div>
     </PageSection>
   )

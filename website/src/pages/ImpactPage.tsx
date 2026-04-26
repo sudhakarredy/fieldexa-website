@@ -1,27 +1,33 @@
 import { PageSection } from '../components/PageSection'
-
-const impactAreas = [
-  'Farmer livelihood and market readiness',
-  'Actionable field visibility for management teams',
-  'Traceability confidence for downstream stakeholders',
-  'Operational efficiency across distributed teams',
-]
+import { impactStories } from '../content'
 
 export function ImpactPage() {
   return (
-    <PageSection
-      eyebrow="Impact"
-      title="Operational Impact You Can Validate"
-      subtitle="All public impact statements should be tied to evidence in the claims matrix before release."
-    >
-      <div className="cards-grid">
-        {impactAreas.map((item) => (
-          <article key={item} className="info-card">
-            <h2>{item}</h2>
-            <p>Publish quantified results only after internal review and formal approval.</p>
-          </article>
-        ))}
-      </div>
-    </PageSection>
+    <>
+      <PageSection
+        eyebrow="Impact"
+        title="Operational Impact Grounded in Better Execution"
+        subtitle="FIELDexa focuses on the workflow foundation teams need before they make stronger performance claims, forecast outcomes, or expand program scale."
+      >
+        <div className="cards-grid">
+          {impactStories.map((story) => (
+            <article key={story.title} className="info-card">
+              <h2>{story.title}</h2>
+              <p>{story.description}</p>
+            </article>
+          ))}
+        </div>
+      </PageSection>
+
+      <section className="page-section page-section-muted">
+        <div className="container">
+          <h2>Evidence Discipline</h2>
+          <p className="section-subtitle">
+            FIELDexa does not publish impact percentages, yield claims, or customer-specific outcomes on
+            the public site unless they are documented, reviewed, and approved for release.
+          </p>
+        </div>
+      </section>
+    </>
   )
 }

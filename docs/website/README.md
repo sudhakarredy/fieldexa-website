@@ -9,7 +9,7 @@ This folder is the single source of truth for public website implementation, rel
 - QA and release operators
 
 ## Quick Start
-**→ START HERE:** [START_PHASE_A.md](./START_PHASE_A.md) - Entry point for Phase A execution
+**→ START HERE:** [IMPLEMENTATION_TODO.md](./IMPLEMENTATION_TODO.md) - Active execution tracker with Phase B as the current workstream
 
 ## Document Map
 1. LAUNCH_PLAN.md - Scope, timeline, owners, and release criteria
@@ -21,7 +21,7 @@ This folder is the single source of truth for public website implementation, rel
 7. VERIFICATION_REPORT.md - Pre-launch validation evidence
 8. IMPLEMENTATION_HANDOFF.md - Build kickoff packet for execution
 9. IMPLEMENTATION_TODO.md - Master checklist for remaining implementation tasks
-10. START_PHASE_A.md - Phase A quick entry (START HERE)
+10. START_PHASE_A.md - Archived Phase A entry retained for reference
 11. PHASE_A_MANIFEST.md - Phase A summary and delivery checklist
 12. PHASE_A_REFERENCE.md - Quick reference card
 13. PHASE_A_PREPARATION_COMPLETE.md - Automation summary and entry point
@@ -39,3 +39,8 @@ This folder is the single source of truth for public website implementation, rel
 - All updates must be committed via pull request
 - Leadership approval is required for legal pages and public claims
 - No unlicensed third-party assets are permitted in production
+
+## Current Focus
+- Phase A is complete.
+- Phase B is now the active workstream for content, legal page finalization, screenshots, case studies, and claims verification.
+- Use [IMPLEMENTATION_TODO.md](./IMPLEMENTATION_TODO.md) as the daily source of truth for remaining execution.

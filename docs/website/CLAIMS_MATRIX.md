@@ -15,6 +15,24 @@
 | C-006 | AI weather monitoring and analysis is being rolled out in Koru. | In Rollout | Leadership approval 2026-04-26 | Pending | Draft |
 | C-007 | AI crop prediction is being rolled out in Koru. | In Rollout | Leadership approval 2026-04-26 | Pending | Draft |
 | C-008 | SMS notifications for issues and harvest events are being rolled out in Koru. | In Rollout | Leadership approval 2026-04-26 | Pending | Draft |
+| C-009 | FIELDexa helps agriculture teams coordinate field operations from one operational platform. | Live Now | docs/ARCHITECTURAL_BIBLE.md | Pending | Draft |
+| C-010 | FIELDexa maintains connected operational records across agriculture workflows. | Live Now | docs/API_REFERENCE.md | Pending | Draft |
+| C-011 | FIELDexa supports traceability-ready workflows and record preparation. | Live Now | docs/API_REFERENCE.md | Pending | Draft |
+| C-012 | FIELDexa supports contract farming operations including farmer onboarding, farm records, agreements, input activity, and harvest updates. | Live Now | docs/ARCHITECTURAL_BIBLE.md | Pending | Draft |
+| C-013 | FIELDexa gives field teams and supervisors visibility into issue escalation, follow-up, and action tracking across active geographies. | Live Now | docs/ARCHITECTURAL_BIBLE.md | Pending | Draft |
+| C-014 | FIELDexa creates a system of record for growers, plots, relationships, and seasonal operating context. | Live Now | docs/ARCHITECTURAL_BIBLE.md | Pending | Draft |
+| C-015 | FIELDexa supports role-based visibility for managers, coordinators, and operations leads. | Live Now | docs/API_REFERENCE.md | Pending | Draft |
+| C-016 | FIELDexa brings field activity, follow-up actions, and harvest progress into one view for management teams. | Live Now | docs/API_REFERENCE.md | Pending | Draft |
+| C-017 | FIELDexa helps reduce handoff friction by keeping workflows and action ownership visible across teams. | Live Now | docs/ARCHITECTURAL_BIBLE.md | Pending | Draft |
+| C-018 | FIELDexa can support more growers, more fields, and more operating activity over time on a common workflow foundation. | Live Now | docs/ARCHITECTURAL_BIBLE.md | Pending | Draft |
+
+## Current Website Coverage
+- Home page: C-001, C-003, C-005, C-006, C-007, C-008, C-009, C-010, C-011, C-012, C-013
+- Solutions page: C-001, C-003, C-005, C-006, C-007, C-008, C-012, C-013
+- Platform page: C-001, C-004, C-010, C-014, C-015, C-016
+- Impact page: C-003, C-016, C-017, C-018
+- Case Studies page: C-003, C-010, C-011, C-013, C-016
+- About page: C-009, C-010
 
 ## Restricted Claims
 1. Do not claim customer impact percentages unless audited and approved.
