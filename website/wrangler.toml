@@ -1,0 +1,27 @@
+name = "fieldexa-website"
+type = "javascript"
+compatibility_date = "2024-04-08"
+
+[env.production]
+routes = [
+  { pattern = "fieldexa.com/*", zone_name = "fieldexa.com" },
+  { pattern = "www.fieldexa.com/*", zone_name = "fieldexa.com" }
+]
+vars = { ENVIRONMENT = "production" }
+
+[env.staging]
+routes = [
+  { pattern = "staging.fieldexa.com/*", zone_name = "fieldexa.com" }
+]
+vars = { ENVIRONMENT = "staging" }
+
+[build]
+command = "npm run build"
+cwd = "./"
+watch_paths = ["src/**/*.ts", "src/**/*.tsx"]
+
+[[env.production.triggers.crons]]
+cron = "0 0 * * *"
+
+[functions]
+directory = "functions"

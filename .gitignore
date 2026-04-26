@@ -1,0 +1,14 @@
+docs/*
+!docs/website/
+!docs/website/**
+
+Images&Branding/
+
+website/node_modules/
+website/dist/
+website/.wrangler/
+website/.dev.vars
+website/.env
+
+.DS_Store
+Thumbs.db

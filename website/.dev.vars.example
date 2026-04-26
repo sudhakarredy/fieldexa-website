@@ -1,0 +1,6 @@
+# Local and preview variables for Cloudflare Pages Functions
+# Copy this file to .dev.vars for local Cloudflare Pages function testing.
+
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=demo@fieldexa.com
+CONTACT_FROM_EMAIL=noreply@fieldexa.com
