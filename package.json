@@ -5,6 +5,10 @@
   "scripts": {
     "build": "npm install --prefix website && npm run build --prefix website && node scripts/sync-dist.mjs",
     "lint": "npm install --prefix website && npm run lint --prefix website",
-    "preview": "npm run preview --prefix website"
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.85.0"
   }
 }
