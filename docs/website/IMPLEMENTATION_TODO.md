@@ -3,7 +3,7 @@
 ## Purpose
 Track all remaining implementation tasks from current scaffold to production launch without missing dependencies.
 
-## Current Snapshot (2026-04-26)
+## Current Snapshot (2026-04-27)
 - [x] Website scaffold created with route-based page structure
 - [x] Core pages and legal placeholders added
 - [x] Brand token CSS baseline added
@@ -17,6 +17,8 @@ Track all remaining implementation tasks from current scaffold to production lau
 - [x] Demo form submission verified end-to-end to target inbox
 - [x] Legal page placeholders replaced with draft website policy content for review
 - [x] Core marketing pages moved from scaffold copy to structured draft launch copy
+- [x] Phase B review package approved by leadership and legal
+- [x] Phase C compliance and public safety checks completed
 
 ## Phase A: Repository and Delivery Setup
 - [x] Create dedicated public website GitHub repository
@@ -38,29 +40,29 @@ Track all remaining implementation tasks from current scaffold to production lau
 - [x] Validate end-to-end form delivery in preview and production
 
 ## Phase B: Content and Asset Completion
-## Phase B: Draft Content and Governance ✅ COMPLETE (Awaiting Approval)
+## Phase B: Draft Content and Governance ✅ COMPLETE
 - [x] Draft legal page copy for Privacy, Terms, Cookie Policy, DPA
-- [ ] ⏳ **Approval Gate**: Secure leadership-approved final legal text (4 files) — awaiting counsel review
+- [x] ✅ **Approval Gate**: Secure leadership-approved final legal text (4 files)
 - [x] Draft Home page hero and section copy
 - [x] Draft Solutions page copy with screenshots
 - [x] Draft Platform page copy with screenshots
 - [x] Draft Impact page copy
 - [x] Draft Case Studies page copy
 - [x] Create shared content layer (`website/src/content.ts`)
-- [ ] ⏳ **Approval Gate**: Finalize approved launch copy for all 5 marketing pages — awaiting product review
+- [x] ✅ **Approval Gate**: Finalize approved launch copy for all 5 marketing pages
 - [x] Curate and add draft Koru screenshots with working captions
-- [ ] ⏳ **Approval Gate**: Finalize approved Koru screenshots and captions — awaiting product review
+- [x] ✅ **Approval Gate**: Finalize approved Koru screenshots and captions
 - [x] Map current live public claims into `CLAIMS_MATRIX.md` (18 claims total)
-- [ ] ⏳ **Approval Gate**: Complete reviewer sign-off for live public claims — awaiting leadership sign-off
+- [x] ✅ **Approval Gate**: Complete reviewer sign-off for live public claims
 - [x] Complete `COPYRIGHT_LICENSE_REGISTER.md` with 3 newly-used Koru screenshots
 - [x] Create Phase B Review Package document for leadership
-- [ ] ⏳ **Approval Gate**: Execute all approved edits from sign-off — after review complete
+- [x] ✅ **Approval Gate**: Execute all approved edits from sign-off
 
 ## Phase C: Compliance and Public Safety
 - [x] Complete `COPYRIGHT_LICENSE_REGISTER.md` with all published assets
-- [ ] Validate no unlicensed third-party assets are used
-- [ ] Validate no unsupported testimonials, metrics, or certifications
-- [ ] Complete legal/leadership sign-off records in launch docs
+- [x] Validate no unlicensed third-party assets are used
+- [x] Validate no unsupported testimonials, metrics, or certifications
+- [x] Complete legal/leadership sign-off records in launch docs
 
 ## Phase D: Product and UX Hardening
 - [ ] Add analytics events (CTA clicks, form starts, form submits)
@@ -93,8 +95,8 @@ Use this table to assign execution owners.
 |---|---|---|---|---|
 | Repo and Branch Protection | Web Team | TBD | 2026-04-26 | Complete |
 | Cloudflare Deployment | Web Team | TBD | 2026-04-26 | Complete |
-| Content and Legal | TBD | TBD | TBD | Not Started |
-| Claims and Copyright Review | TBD | TBD | TBD | Not Started |
+| Content and Legal | Leadership | TBD | 2026-04-27 | Complete |
+| Claims and Copyright Review | Leadership + Web Team | TBD | 2026-04-27 | Complete |
 | QA and Release | TBD | TBD | TBD | Not Started |
 
 ## Daily Update Rule
