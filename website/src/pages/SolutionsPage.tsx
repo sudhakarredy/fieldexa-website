@@ -147,6 +147,7 @@ const sections: CapabilitySection[] = [
     differentiators: [
       'First female flower and pollination markers integrated with harvest refinement signals',
       'Issue escalation from field app to ticketed management workflow in one chain',
+      'WhatsApp/SMS alerts deliver issue context and recommended actions for input, harvest, and critical field events',
       'Cluster-level visibility that supports coordinated mass action playbooks',
     ],
     heroProof: fieldIntelProof.slice(0, 3),
@@ -287,7 +288,11 @@ export function SolutionsPage() {
 
       <section className="page-section">
         <div className="container">
-          <h2>In Rollout Capabilities</h2>
+          <h2>Advanced Capabilities in Rollout</h2>
+          <p className="section-subtitle">
+            <strong>Live now:</strong> WhatsApp/SMS alerting is already active for input issues, harvest events,
+            and critical alerts, including action-to-be-taken guidance for farmer and field-team response.
+          </p>
           <ul className="bullet-list">
             {inRolloutFeatures.map((feature) => (
               <li key={feature}>{feature}</li>

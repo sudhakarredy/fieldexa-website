@@ -30,7 +30,7 @@ export const inRolloutFeatures = [
   'AI chat app for insights and queries',
   'AI-based weather monitoring and analysis',
   'AI-based crop prediction',
-  'SMS notifications for issues and harvest events',
+  'AI-assisted intervention recommendations for field teams',
 ]
 
 export const solutionTracks = [
