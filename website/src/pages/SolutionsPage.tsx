@@ -270,15 +270,22 @@ export function SolutionsPage() {
         subtitle="Koru unifies grower onboarding, seasonal commercial controls, field intelligence, harvest traceability, and enterprise integration in one operations-grade system."
       >
         <div className="koru-origin-card">
-          <p>
-            <strong>Koru</strong> is inspired by the Maori symbol of the unfurling fern, representing growth,
-            renewal, and forward momentum. In contract farming, this aligns with how high-performing programs
-            scale: each season compounds trusted data, sharper interventions, and stronger operating outcomes.
-          </p>
-          <p>
-            FIELDexa Koru is built to turn that growth into repeatable system behavior across field teams,
-            supervisors, and enterprise management.
-          </p>
+          <div className="koru-origin-text">
+            <p>
+              <strong>Koru</strong> is inspired by the Maori symbol of the unfurling fern, representing growth,
+              renewal, and forward momentum. In contract farming, this aligns with how high-performing programs
+              scale: each season compounds trusted data, sharper interventions, and stronger operating outcomes.
+            </p>
+            <p>
+              FIELDexa Koru is built to turn that growth into repeatable system behavior across field teams,
+              supervisors, and enterprise management.
+            </p>
+          </div>
+          <img
+            src="/brand/koru-logo.png"
+            alt="FIELDexa Koru product logo"
+            className="koru-origin-logo"
+          />
         </div>
 
         <div className="solution-highlight-grid">
