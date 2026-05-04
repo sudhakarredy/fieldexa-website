@@ -303,6 +303,18 @@ h2 {
   gap: 0.9rem;
 }
 
+.proof-platform-block {
+  margin-top: 0.95rem;
+}
+
+.proof-platform-title {
+  margin: 0;
+  color: #1c4b77;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
 .proof-grid-primary {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
@@ -316,6 +328,22 @@ h2 {
   padding: 0.7rem;
 }
 
+.evidence-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: inherit;
+}
+
+.evidence-image-button:focus-visible {
+  outline: 2px solid #1c4b77;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
 .evidence-image-mobile,
 .evidence-image-web {
   width: 100%;
@@ -326,10 +354,20 @@ h2 {
 
 .evidence-image-mobile {
   height: clamp(240px, 34vw, 420px);
+  object-fit: cover;
 }
 
 .evidence-image-web {
   height: clamp(200px, 24vw, 320px);
+  object-fit: contain;
+}
+
+.proof-grid-mobile {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.proof-grid-web {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .proof-expander {
@@ -348,6 +386,61 @@ h2 {
 
 .proof-expander[open] summary {
   margin-bottom: 0.55rem;
+}
+
+.proof-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+}
+
+.proof-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 16, 31, 0.8);
+}
+
+.proof-lightbox-panel {
+  position: relative;
+  width: min(980px, 92vw);
+  max-height: 90vh;
+  overflow: auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
+.proof-lightbox-close {
+  margin-left: auto;
+  display: block;
+  border: 1px solid var(--border-soft);
+  background: #f3f6fa;
+  color: var(--brand-navy);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.proof-lightbox-platform {
+  margin-top: 0.7rem;
+  color: #1c4b77;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.proof-lightbox-image {
+  margin-top: 0.8rem;
+  width: 100%;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  background: #f5f7fb;
 }
 
 .bullet-list {

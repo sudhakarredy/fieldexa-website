@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { PageSection } from '../components/PageSection'
 import { inRolloutFeatures } from '../content'
 
@@ -5,6 +6,14 @@ type ProofImage = {
   src: string
   label: string
   platform: 'Mobile' | 'Web'
+}
+
+type SelectedProof = {
+  src: string
+  title: string
+  narrative: string
+  platform: 'Mobile' | 'Web'
+  alt: string
 }
 
 type CapabilitySection = {
@@ -26,6 +35,14 @@ const webImages = import.meta.glob('../assets/koru/WebApp_Screenshots/*.{jpg,jpe
   eager: true,
   import: 'default',
 }) as Record<string, string>
+
+const sectionNarratives: Record<string, string> = {
+  onboarding: 'identity-safe onboarding and geospatial farm foundation setup',
+  'seasonal-ops': 'season-level commercial control and input governance',
+  'field-intelligence': 'field intelligence capture, alert escalation, and intervention tracking',
+  'harvest-traceability': 'harvest operations and transfer traceability workflows',
+  'enterprise-controls': 'enterprise adoption controls, analytics, and integration readiness',
+}
 
 function fileLabel(path: string) {
   return path
@@ -62,6 +79,65 @@ function chunkProof(source: Record<string, string>, from: number, to: number) {
       label: fileLabel(path) ?? 'Koru console screen',
       platform: 'Web' as const,
     }))
+}
+
+function proofTitle(sectionId: string, label: string, platform: 'Mobile' | 'Web') {
+  const normalized = label.toLowerCase().replace(/\s+/g, '')
+
+  if (normalized.includes('farmer')) {
+    return 'Farmer profile and verification capture'
+  }
+  if (normalized.includes('farm')) {
+    return 'Farm geotag and acreage onboarding'
+  }
+  if (normalized.includes('agreement')) {
+    return 'Season agreement and grade-rate setup'
+  }
+  if (normalized.includes('input')) {
+    return 'Input issue and batch-linked tracking'
+  }
+  if (normalized.includes('return')) {
+    return 'Input return reconciliation workflow'
+  }
+  if (normalized.includes('fieldvisit')) {
+    return 'Field visit and crop-stage evidence logging'
+  }
+  if (normalized.includes('alert')) {
+    return 'Critical issue escalation and alert tracking'
+  }
+  if (normalized.includes('harvest')) {
+    return 'Grade-wise harvest recording workflow'
+  }
+  if (normalized.includes('manifest')) {
+    return 'Factory transfer manifest generation'
+  }
+  if (normalized.includes('report')) {
+    return 'Operational analytics and report view'
+  }
+  if (normalized.includes('login')) {
+    return 'Secure role-based access entry'
+  }
+  if (normalized.includes('home')) {
+    return 'Execution dashboard and worklist visibility'
+  }
+  if (normalized.includes('setting')) {
+    return 'Language, theme, and accessibility controls'
+  }
+  if (platform === 'Web') {
+    return 'Web operations console snapshot'
+  }
+
+  return sectionNarratives[sectionId] ? `Mobile workflow for ${sectionNarratives[sectionId]}` : 'Operational workflow capture'
+}
+
+function proofNarrative(sectionId: string, platform: 'Mobile' | 'Web') {
+  const sectionContext = sectionNarratives[sectionId] ?? 'enterprise contract farming operations'
+
+  if (platform === 'Mobile') {
+    return `Mobile-first screen used by field teams for ${sectionContext}.`
+  }
+
+  return `Web application view used by supervisors and management for ${sectionContext}.`
 }
 
 const onboardingProof = [
@@ -184,6 +260,8 @@ const sections: CapabilitySection[] = [
 ]
 
 export function SolutionsPage() {
+  const [selectedProof, setSelectedProof] = useState<SelectedProof | null>(null)
+
   return (
     <>
       <PageSection
@@ -250,34 +328,146 @@ export function SolutionsPage() {
                   ))}
                 </ul>
 
-                <div className="proof-grid proof-grid-primary">
-                  {section.heroProof.map((proof) => (
-                    <figure key={`${section.id}-${proof.label}`} className="screenshot-card evidence-card">
-                      <img
-                        src={proof.src}
-                        alt={`${proof.platform} evidence screen: ${proof.label}.`}
-                        className={proof.platform === 'Mobile' ? 'evidence-image-mobile' : 'evidence-image-web'}
-                        loading="lazy"
-                      />
-                      <figcaption>{proof.platform} proof: {proof.label}</figcaption>
-                    </figure>
-                  ))}
+                <div className="proof-platform-block">
+                  <h5 className="proof-platform-title">Mobile App Proof</h5>
+                  <div className="proof-grid proof-grid-primary proof-grid-mobile">
+                    {section.heroProof
+                      .filter((proof) => proof.platform === 'Mobile')
+                      .map((proof) => {
+                        const title = proofTitle(section.id, proof.label, proof.platform)
+                        const narrative = proofNarrative(section.id, proof.platform)
+                        const alt = `${title}. ${narrative}`
+
+                        return (
+                          <figure key={`${section.id}-${proof.label}`} className="screenshot-card evidence-card">
+                            <button
+                              type="button"
+                              className="evidence-image-button"
+                              onClick={() => setSelectedProof({ src: proof.src, title, narrative, platform: proof.platform, alt })}
+                              aria-label={`Enlarge ${title}`}
+                            >
+                              <img
+                                src={proof.src}
+                                alt={alt}
+                                className="evidence-image-mobile"
+                                loading="lazy"
+                              />
+                            </button>
+                            <figcaption>
+                              <strong>{title}</strong> {narrative}
+                            </figcaption>
+                          </figure>
+                        )
+                      })}
+                  </div>
+                </div>
+
+                <div className="proof-platform-block">
+                  <h5 className="proof-platform-title">Web App Proof</h5>
+                  <div className="proof-grid proof-grid-primary proof-grid-web">
+                    {section.heroProof
+                      .filter((proof) => proof.platform === 'Web')
+                      .map((proof) => {
+                        const title = proofTitle(section.id, proof.label, proof.platform)
+                        const narrative = proofNarrative(section.id, proof.platform)
+                        const alt = `${title}. ${narrative}`
+
+                        return (
+                          <figure key={`${section.id}-${proof.label}`} className="screenshot-card evidence-card">
+                            <button
+                              type="button"
+                              className="evidence-image-button"
+                              onClick={() => setSelectedProof({ src: proof.src, title, narrative, platform: proof.platform, alt })}
+                              aria-label={`Enlarge ${title}`}
+                            >
+                              <img
+                                src={proof.src}
+                                alt={alt}
+                                className="evidence-image-web"
+                                loading="lazy"
+                              />
+                            </button>
+                            <figcaption>
+                              <strong>{title}</strong> {narrative}
+                            </figcaption>
+                          </figure>
+                        )
+                      })}
+                  </div>
                 </div>
 
                 <details className="proof-expander">
                   <summary>View complete evidence set ({section.expandedProof.length} additional screens)</summary>
-                  <div className="proof-grid proof-grid-expanded">
-                    {section.expandedProof.map((proof) => (
-                      <figure key={`${section.id}-expanded-${proof.label}`} className="screenshot-card evidence-card">
-                        <img
-                          src={proof.src}
-                          alt={`${proof.platform} evidence screen: ${proof.label}.`}
-                          className={proof.platform === 'Mobile' ? 'evidence-image-mobile' : 'evidence-image-web'}
-                          loading="lazy"
-                        />
-                        <figcaption>{proof.platform} evidence: {proof.label}</figcaption>
-                      </figure>
-                    ))}
+                  <div className="proof-platform-block">
+                    <h5 className="proof-platform-title">More Mobile Screens</h5>
+                    <div className="proof-grid proof-grid-expanded proof-grid-mobile">
+                      {section.expandedProof
+                        .filter((proof) => proof.platform === 'Mobile')
+                        .map((proof) => {
+                          const title = proofTitle(section.id, proof.label, proof.platform)
+                          const narrative = proofNarrative(section.id, proof.platform)
+                          const alt = `${title}. ${narrative}`
+
+                          return (
+                            <figure key={`${section.id}-expanded-${proof.label}`} className="screenshot-card evidence-card">
+                              <button
+                                type="button"
+                                className="evidence-image-button"
+                                onClick={() =>
+                                  setSelectedProof({ src: proof.src, title, narrative, platform: proof.platform, alt })
+                                }
+                                aria-label={`Enlarge ${title}`}
+                              >
+                                <img
+                                  src={proof.src}
+                                  alt={alt}
+                                  className="evidence-image-mobile"
+                                  loading="lazy"
+                                />
+                              </button>
+                              <figcaption>
+                                <strong>{title}</strong> {narrative}
+                              </figcaption>
+                            </figure>
+                          )
+                        })}
+                    </div>
+                  </div>
+
+                  <div className="proof-platform-block">
+                    <h5 className="proof-platform-title">More Web Screens</h5>
+                    <div className="proof-grid proof-grid-expanded proof-grid-web">
+                      {section.expandedProof
+                        .filter((proof) => proof.platform === 'Web')
+                        .map((proof) => {
+                          const title = proofTitle(section.id, proof.label, proof.platform)
+                          const narrative = proofNarrative(section.id, proof.platform)
+                          const alt = `${title}. ${narrative}`
+
+                          return (
+                            <figure key={`${section.id}-expanded-${proof.label}`} className="screenshot-card evidence-card">
+                              <button
+                                type="button"
+                                className="evidence-image-button"
+                                onClick={() =>
+                                  setSelectedProof({ src: proof.src, title, narrative, platform: proof.platform, alt })
+                                }
+                                aria-label={`Enlarge ${title}`}
+                              >
+                                <img
+                                  src={proof.src}
+                                  alt={alt}
+                                  className="evidence-image-web"
+                                  loading="lazy"
+                                />
+                              </button>
+                              <figcaption>
+                                <strong>{title}</strong> {narrative}
+                              </figcaption>
+                            </figure>
+                          )
+                        })}
+                    </div>
                   </div>
                 </details>
               </article>
@@ -300,6 +490,26 @@ export function SolutionsPage() {
           </ul>
         </div>
       </section>
+
+      {selectedProof ? (
+        <div className="proof-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged workflow image">
+          <div className="proof-lightbox-backdrop" onClick={() => setSelectedProof(null)} aria-hidden="true" />
+          <div className="proof-lightbox-panel">
+            <button
+              type="button"
+              className="proof-lightbox-close"
+              onClick={() => setSelectedProof(null)}
+              aria-label="Close enlarged image"
+            >
+              Close
+            </button>
+            <p className="proof-lightbox-platform">{selectedProof.platform} view</p>
+            <h3>{selectedProof.title}</h3>
+            <p>{selectedProof.narrative}</p>
+            <img src={selectedProof.src} alt={selectedProof.alt} className="proof-lightbox-image" />
+          </div>
+        </div>
+      ) : null}
     </>
   )
 }
