@@ -243,6 +243,113 @@ h2 {
   line-height: 1.55;
 }
 
+.koru-origin-card {
+  margin-top: 1.2rem;
+  padding: 1.2rem;
+  border-radius: 18px;
+  border: 1px solid rgba(31, 166, 122, 0.35);
+  background: linear-gradient(135deg, rgba(31, 166, 122, 0.14), rgba(11, 31, 59, 0.04));
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.solution-highlight-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.capability-stack {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.capability-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  padding: 1.15rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.capability-header {
+  margin-bottom: 0.75rem;
+}
+
+.capability-header h3 {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 1.32rem;
+}
+
+.capability-outcome {
+  margin-top: 0.45rem;
+  color: #134370;
+  font-weight: 600;
+}
+
+.capability-card h4 {
+  margin: 1rem 0 0.5rem;
+  color: var(--text-strong);
+  font-size: 1rem;
+}
+
+.proof-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.proof-grid-primary {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.proof-grid-expanded {
+  margin-top: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.evidence-card {
+  padding: 0.7rem;
+}
+
+.evidence-image-mobile,
+.evidence-image-web {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #f6f8fb;
+}
+
+.evidence-image-mobile {
+  height: clamp(240px, 34vw, 420px);
+}
+
+.evidence-image-web {
+  height: clamp(200px, 24vw, 320px);
+}
+
+.proof-expander {
+  margin-top: 0.85rem;
+  border: 1px dashed rgba(11, 31, 59, 0.24);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.64);
+  padding: 0.75rem;
+}
+
+.proof-expander summary {
+  color: var(--brand-navy);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.proof-expander[open] summary {
+  margin-bottom: 0.55rem;
+}
+
 .bullet-list {
   margin: 1rem 0 0;
   padding-left: 1.2rem;
@@ -349,5 +456,22 @@ h2 {
 
   .page-section {
     padding: 3.2rem 0;
+  }
+
+  .capability-card {
+    padding: 1rem;
+  }
+
+  .proof-grid-primary,
+  .proof-grid-expanded {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .evidence-image-mobile {
+    height: clamp(240px, 62vw, 420px);
+  }
+
+  .evidence-image-web {
+    height: clamp(180px, 46vw, 280px);
   }
 }
