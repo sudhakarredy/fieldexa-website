@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { PageSection } from '../components/PageSection'
-import { corePillars, inRolloutFeatures, solutionTracks } from '../content'
+import { corePillars, solutionTracks } from '../content'
 
 export function HomePage() {
   return (
@@ -39,21 +39,6 @@ export function HomePage() {
               <p>{track.description}</p>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="page-section">
-        <div className="container">
-          <p className="eyebrow">Koru In Rollout</p>
-          <h2>Upcoming Intelligence Layer</h2>
-          <div className="rollout-grid">
-            {inRolloutFeatures.map((feature) => (
-              <div key={feature} className="rollout-item">
-                <span className="status-chip">In Rollout</span>
-                <p>{feature}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </>

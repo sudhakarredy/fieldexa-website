@@ -8,6 +8,7 @@ import { DpaPage } from './pages/DpaPage'
 import { HomePage } from './pages/HomePage'
 import { ImpactPage } from './pages/ImpactPage'
 import { PlatformPage } from './pages/PlatformPage'
+import { ProductCapabilitiesPage } from './pages/ProductCapabilitiesPage'
 import { PrivacyPage } from './pages/PrivacyPage'
 import { SolutionsPage } from './pages/SolutionsPage'
 import { TermsPage } from './pages/TermsPage'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/platform" element={<PlatformPage />} />
+          <Route path="/capabilities" element={<ProductCapabilitiesPage />} />
           <Route path="/impact" element={<ImpactPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/about" element={<AboutPage />} />

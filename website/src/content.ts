@@ -2,6 +2,7 @@ export const navItems = [
   { label: 'Home', path: '/' },
   { label: 'Solutions', path: '/solutions' },
   { label: 'Platform', path: '/platform' },
+  { label: 'Capabilities', path: '/capabilities' },
   { label: 'Impact', path: '/impact' },
   { label: 'Case Studies', path: '/case-studies' },
   { label: 'About', path: '/about' },
@@ -10,27 +11,128 @@ export const navItems = [
 
 export const corePillars = [
   {
-    title: 'Farm Operations Backbone',
+    title: 'Predictive Operations Intelligence',
     description:
-      'Manage farmers, farms, agreements, inputs, harvests, alerts, and field workflows from one platform.',
+      'AI-powered harvest forecasting, yield prediction, and grade-mix planning for proactive resource allocation and buyer alignment.',
   },
   {
-    title: 'Traceability and Compliance Workflows',
+    title: 'Traceability and Compliance Ready',
     description:
-      'Organize verifiable records for supply-chain accountability and compliance-oriented reporting.',
+      'Enterprise-grade governance, RBAC, sensitive data controls, and audit trails embedded across all operations.',
   },
   {
-    title: 'Field Intelligence and Analytics',
+    title: 'Distributed Team Coordination',
     description:
-      'Use role-based dashboards and operational analytics to prioritize actions faster.',
+      'Geo-scoped planning by State, Area, Cluster, and Village with role-aware insights and multi-language support.',
   },
 ]
 
-export const inRolloutFeatures = [
-  'AI chat app for insights and queries',
-  'AI-based weather monitoring and analysis',
-  'AI-based crop prediction',
-  'AI-assisted intervention recommendations for field teams',
+export const advancedCapabilities = [
+  {
+    title: 'AI Operations Copilot (Hola)',
+    description:
+      'Natural-language assistant for management queries across alerts, crop distributions, and operational summaries with tenant and geo scope controls.',
+    category: 'Intelligence',
+    relatedScreens: ['Home']
+  },
+  {
+    title: 'Predictive Harvest Intelligence',
+    description:
+      'Farm-level harvest date and yield forecasting using multi-signal models (weather/GDD, crop parameters, field context) with confidence scoring.',
+    category: 'Forecasting',
+    relatedScreens: ['Harvest']
+  },
+  {
+    title: 'Grade-Mix Forecasting',
+    description:
+      'Forward-looking grade distribution estimates per farm to support procurement, quality planning, and buyer alignment.',
+    category: 'Forecasting',
+    relatedScreens: ['Harvest']
+  },
+  {
+    title: 'Predicted vs Actual Harvest Tracking',
+    description:
+      'Built-in visibility of predicted yield versus already harvested quantity for faster variance detection and operational correction.',
+    category: 'Analytics',
+    relatedScreens: ['Harvest']
+  },
+  {
+    title: 'Weekly Harvest Prediction for Transport Planning',
+    description:
+      'Rolling 7-day dispatch view that converts farm predictions into actionable logistics quantities for supply chain efficiency.',
+    category: 'Planning',
+    relatedScreens: ['Harvest']
+  },
+  {
+    title: 'Configurable Week Logic Per Client',
+    description:
+      'Supports Calendar Week (Mon-Sun) and Work Week (Sat-Fri) at tenant level to match diverse operating models.',
+    category: 'Configuration',
+    relatedScreens: []
+  },
+  {
+    title: 'Crop-Wise Distribution Engine',
+    description:
+      'Allocates expected harvest by crop across the upcoming week using configurable distribution curves for practical load planning.',
+    category: 'Planning',
+    relatedScreens: ['Harvest']
+  },
+  {
+    title: 'Geo-Scoped Planning and Analytics',
+    description:
+      'Filter and plan by State, Area, Cluster, and Village for decentralized operations and regional control towers.',
+    category: 'Analytics',
+    relatedScreens: ['Farmers', 'Farms', 'FieldVisit']
+  },
+  {
+    title: 'Executive Dashboard with Visual Planning Widgets',
+    description:
+      'At-a-glance KPIs and visual forecast charts designed for daily decision cadence and real-time operational control.',
+    category: 'Analytics',
+    relatedScreens: ['Home']
+  },
+  {
+    title: 'Large-Scale Report Performance',
+    description:
+      'Server-side pagination and export-ready reports designed to remain responsive as farm count grows into thousands.',
+    category: 'Infrastructure',
+    relatedScreens: ['Farmers']
+  },
+  {
+    title: 'Management Alerting and Prioritization',
+    description:
+      'Active alert snapshots, severity split, and issue clustering to drive action boards and escalation workflows.',
+    category: 'Operations',
+    relatedScreens: ['Alerts']
+  },
+  {
+    title: 'Traceability-Ready Reporting Suite',
+    description:
+      'Operational traceability modules for manual review, manifest movement, and reconciliation workflows aligned with regulatory requirements.',
+    category: 'Compliance',
+    relatedScreens: ['Farmers', 'Agreements']
+  },
+  {
+    title: 'Fuzzy Duplicate Detection',
+    description:
+      'Intelligent duplicate farmer prevention using phone, name, and village fuzzy matching with automated alerts to finance teams.',
+    category: 'Data Quality',
+    relatedScreens: ['Farmers']
+  },
+  {
+    title: 'Multilingual Communication Framework',
+    description:
+      'Template-driven outbound messaging for inputs, harvests, and critical alerts with language-aware delivery flows.',
+    category: 'Operations',
+    relatedScreens: ['Alerts', 'Harvest']
+  },
+  {
+    title: 'Super Admin Domain Controls',
+    description:
+      'Tenant-level policy and model behavior settings (prediction, alerts, messaging, governance) from centralized admin controls.',
+    category: 'Administration',
+    relatedScreens: []
+  },
 ]
 
 export const solutionTracks = [

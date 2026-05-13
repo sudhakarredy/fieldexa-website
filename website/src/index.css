@@ -292,12 +292,135 @@ h2 {
   gap: 1.25rem;
 }
 
+.capabilities-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
 .capability-card {
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--border-soft);
   border-radius: 22px;
   padding: 1.15rem;
   box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+.capability-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-teal);
+  box-shadow: 0 20px 40px rgba(31, 166, 122, 0.15);
+}
+
+.capability-card h3 {
+  margin: 0 0 0.6rem;
+  color: var(--text-strong);
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.capability-card p {
+  flex: 1;
+  margin: 0 0 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.capability-badge {
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 166, 122, 0.4);
+  color: var(--brand-teal);
+  background: rgba(31, 166, 122, 0.08);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  width: fit-content;
+}
+
+.capability-card.clickable {
+  cursor: pointer;
+}
+
+.capability-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--brand-teal);
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.capability-card-wrapper {
+  position: relative;
+}
+
+.capability-card-wrapper.expanded .capability-card {
+  border-color: var(--brand-teal);
+  background: linear-gradient(135deg, rgba(31, 166, 122, 0.06), rgba(255, 255, 255, 0.95));
+}
+
+.capability-screenshots {
+  margin-top: 0.8rem;
+  padding-top: 1rem;
+  border-top: 2px solid rgba(31, 166, 122, 0.15);
+  animation: slideDown 300ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+
+.screenshot-preview {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-paper);
+  border: 1px solid var(--border-soft);
+  transition: all 200ms ease;
+}
+
+.screenshot-preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(11, 31, 59, 0.15);
+}
+
+.screenshot-preview img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #f5f7fb;
+}
+
+.screenshot-preview figcaption {
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-strong);
+  text-align: center;
+  border-top: 1px solid var(--border-soft);
+  background: rgba(242, 244, 247, 0.5);
 }
 
 .capability-header {
