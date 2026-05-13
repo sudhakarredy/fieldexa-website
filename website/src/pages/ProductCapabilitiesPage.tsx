@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PageSection } from '../components/PageSection'
 import { advancedCapabilities } from '../content'
 
@@ -32,6 +32,15 @@ interface Screenshot {
   label: string
   src: string
   platform: 'web' | 'mobile'
+}
+
+interface SelectedScreenshot {
+  label: string
+  src: string
+  platform: 'web' | 'mobile'
+  capabilityTitle: string
+  capabilityDescription: string
+  alt: string
 }
 
 interface Capability {
@@ -88,6 +97,7 @@ const capabilityScreenshots: Record<string, string[]> = {
 
 export function ProductCapabilitiesPage() {
   const [expandedCapability, setExpandedCapability] = useState<string | null>(null)
+  const [selectedScreenshot, setSelectedScreenshot] = useState<SelectedScreenshot | null>(null)
 
   const capsByCategory = advancedCapabilities.reduce((acc, cap) => {
     const category = cap.category || 'Other'
@@ -112,6 +122,24 @@ export function ProductCapabilitiesPage() {
   const toggleExpanded = (title: string) => {
     setExpandedCapability(expandedCapability === title ? null : title)
   }
+
+  useEffect(() => {
+    if (!selectedScreenshot) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedScreenshot(null)
+      }
+    }
+
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [selectedScreenshot])
 
   return (
     <>
@@ -172,10 +200,27 @@ export function ProductCapabilitiesPage() {
                               const screenshot = screenshotMap[screenKey]
                               return screenshot ? (
                                 <figure key={screenKey} className="screenshot-preview">
-                                  <img src={screenshot.src} alt={screenshot.label} loading="lazy" />
+                                  <button
+                                    type="button"
+                                    className="screenshot-preview-button"
+                                    onClick={() =>
+                                      setSelectedScreenshot({
+                                        label: screenshot.label,
+                                        src: screenshot.src,
+                                        platform: screenshot.platform,
+                                        capabilityTitle: cap.title,
+                                        capabilityDescription: cap.description,
+                                        alt: `${screenshot.label} preview for ${cap.title}`,
+                                      })
+                                    }
+                                    aria-label={`Enlarge ${screenshot.label} for ${cap.title}`}
+                                  >
+                                    <img src={screenshot.src} alt={screenshot.label} loading="lazy" />
+                                  </button>
                                   <figcaption>
                                     <strong>{screenshot.label}</strong>
                                     <span className="platform-badge">{screenshot.platform === 'web' ? '💻 Web' : '📱 Mobile'}</span>
+                                    <span className="screenshot-hint">Click to zoom</span>
                                   </figcaption>
                                 </figure>
                               ) : null
@@ -214,6 +259,28 @@ export function ProductCapabilitiesPage() {
           </ul>
         </div>
       </section>
+
+      {selectedScreenshot ? (
+        <div className="proof-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged capability screenshot">
+          <div className="proof-lightbox-backdrop" onClick={() => setSelectedScreenshot(null)} aria-hidden="true" />
+          <div className="proof-lightbox-panel">
+            <button
+              type="button"
+              className="proof-lightbox-close"
+              onClick={() => setSelectedScreenshot(null)}
+              aria-label="Close enlarged screenshot"
+            >
+              Close
+            </button>
+            <p className="proof-lightbox-platform">{selectedScreenshot.platform === 'web' ? 'Web view' : 'Mobile view'}</p>
+            <h3>{selectedScreenshot.label}</h3>
+            <p>
+              {selectedScreenshot.capabilityTitle}: {selectedScreenshot.capabilityDescription}
+            </p>
+            <img src={selectedScreenshot.src} alt={selectedScreenshot.alt} className="proof-lightbox-image" />
+          </div>
+        </div>
+      ) : null}
     </>
   )
 }
