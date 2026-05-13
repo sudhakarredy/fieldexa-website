@@ -316,17 +316,13 @@ h2 {
   border-radius: 22px;
   padding: 1rem;
   box-shadow: var(--shadow-soft);
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr);
-  gap: 0.9rem;
+  display: flex;
+  flex-direction: column;
   transition: all 200ms ease;
   position: relative;
   width: 100%;
   text-align: left;
-}
-
-.capability-card-with-media {
-  align-items: start;
+  min-height: 196px;
 }
 
 .capability-card:hover {
@@ -353,6 +349,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  flex: 1;
 }
 
 .capability-badge {
@@ -387,23 +384,8 @@ button.capability-card {
   margin-left: 0.5rem;
 }
 
-.capability-link-button {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  color: var(--brand-teal);
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 700;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.capability-card-visuals {
-  display: grid;
-  gap: 0.65rem;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  align-content: start;
+.capability-card-wrapper {
+  position: relative;
 }
 
 .capability-card-footer {
@@ -413,6 +395,36 @@ button.capability-card {
   margin-top: auto;
   padding-top: 1rem;
   gap: 0.75rem;
+}
+
+.capability-card-wrapper.expanded .capability-card {
+  border-color: var(--brand-teal);
+  background: linear-gradient(135deg, rgba(31, 166, 122, 0.06), rgba(255, 255, 255, 0.95));
+}
+
+.capability-screenshots {
+  margin-top: 0.7rem;
+  padding-top: 0.9rem;
+  border-top: 2px solid rgba(31, 166, 122, 0.15);
+  animation: slideDown 260ms ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.7rem;
+  align-items: start;
 }
 
 .screenshot-preview {
@@ -992,10 +1004,6 @@ button.capability-card {
   }
 
   .capability-card {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .capability-card-visuals {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    min-height: 0;
   }
 }
