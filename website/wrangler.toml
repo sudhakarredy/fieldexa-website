@@ -16,7 +16,7 @@ routes = [
 vars = { ENVIRONMENT = "staging" }
 
 [build]
-command = "npm run build"
+command = "npm ci && npm run build"
 cwd = "./"
 watch_paths = ["src/**/*.ts", "src/**/*.tsx"]
 
