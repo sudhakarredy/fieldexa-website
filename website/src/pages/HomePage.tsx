@@ -152,12 +152,12 @@ export function HomePage() {
       {/* CTA Section */}
       <section className="page-section">
         <div className="container">
-          <div style={{ textAlign: 'center' }}>
+          <div className="home-cta-center">
             <h2>Ready to Bridge the Gap?</h2>
-            <p className="section-subtitle" style={{ marginBottom: '2rem' }}>
+            <p className="section-subtitle home-cta-subtitle">
               See how Koru transforms fragmented operations into connected, predictable, sustainable networks.
             </p>
-            <div className="hero-actions" style={{ justifyContent: 'center' }}>
+            <div className="hero-actions home-cta-actions">
               <Link to="/contact" className="cta-button">
                 Schedule a 30-Min Demo
               </Link>

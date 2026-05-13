@@ -140,28 +140,30 @@ export function ProductCapabilitiesPage() {
                       key={cap.title}
                       className={`capability-card-wrapper ${isExpanded ? 'expanded' : ''}`}
                     >
-                      <article
-                        className={`capability-card ${hasScreenshots ? 'clickable' : ''}`}
-                        onClick={() => hasScreenshots && toggleExpanded(cap.title)}
-                        role={hasScreenshots ? 'button' : undefined}
-                        tabIndex={hasScreenshots ? 0 : undefined}
-                        onKeyDown={(e) => {
-                          if (hasScreenshots && (e.key === 'Enter' || e.key === ' ')) {
-                            toggleExpanded(cap.title)
-                          }
-                        }}
-                      >
-                        <h3>{cap.title}</h3>
-                        <p>{cap.description}</p>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.8rem' }}>
-                          <span className="capability-badge">{cap.category}</span>
-                          {hasScreenshots && (
+                      {hasScreenshots ? (
+                        <button
+                          type="button"
+                          className="capability-card clickable"
+                          onClick={() => toggleExpanded(cap.title)}
+                        >
+                          <h3>{cap.title}</h3>
+                          <p>{cap.description}</p>
+                          <div className="capability-card-footer">
+                            <span className="capability-badge">{cap.category}</span>
                             <span className="capability-link">
                               {isExpanded ? '▼ Hide' : '▶ See in Action'}
                             </span>
-                          )}
-                        </div>
-                      </article>
+                          </div>
+                        </button>
+                      ) : (
+                        <article className="capability-card">
+                          <h3>{cap.title}</h3>
+                          <p>{cap.description}</p>
+                          <div className="capability-card-footer">
+                            <span className="capability-badge">{cap.category}</span>
+                          </div>
+                        </article>
+                      )}
 
                       {isExpanded && hasScreenshots && (
                         <div className="capability-screenshots">
