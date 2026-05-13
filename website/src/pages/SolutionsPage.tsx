@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { PageSection } from '../components/PageSection'
-import { inRolloutFeatures } from '../content'
 
 type ProofImage = {
   src: string
@@ -480,21 +479,6 @@ export function SolutionsPage() {
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="page-section">
-        <div className="container">
-          <h2>Advanced Capabilities in Rollout</h2>
-          <p className="section-subtitle">
-            <strong>Live now:</strong> WhatsApp/SMS alerting is already active for input issues, harvest events,
-            and critical alerts, including action-to-be-taken guidance for farmer and field-team response.
-          </p>
-          <ul className="bullet-list">
-            {inRolloutFeatures.map((feature) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
