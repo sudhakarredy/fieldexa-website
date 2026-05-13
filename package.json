@@ -2,6 +2,9 @@
   "name": "fieldexa-website-repo",
   "private": true,
   "version": "1.0.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "build": "cd website && npm run build && cd .. && node scripts/sync-dist.mjs",
     "lint": "cd website && npm run lint",
