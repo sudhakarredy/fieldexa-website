@@ -29,8 +29,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
+      - name: Build website
+        run: cd website && npm run build
+
+      - name: Sync dist
+        run: node scripts/sync-dist.mjs
 
       - name: Check build output
         run: |
