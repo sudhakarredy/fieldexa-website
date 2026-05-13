@@ -3,8 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build --prefix website && node scripts/sync-dist.mjs",
-    "lint": "npm run lint --prefix website",
+    "build": "cd website && npm run build && cd .. && node scripts/sync-dist.mjs",
+    "lint": "cd website && npm run lint",
     "preview": "wrangler dev",
     "deploy": "wrangler deploy"
   },
