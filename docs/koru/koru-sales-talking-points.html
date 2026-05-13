@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koru Sales Talking Points & Customer Conversations</title>
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --accent: #FF6F00;
+            --text-dark: #212121;
+            --text-light: #757575;
+            --bg-light: #F5F5F5;
+            --bg-white: #FFFFFF;
+            --border: #E0E0E0;
+            --warning: #FF9800;
+            --success: #4CAF50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.05em;
+            opacity: 0.95;
+        }
+
+        .section {
+            background: var(--bg-white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .section h2 {
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            font-size: 1.7em;
+        }
+
+        .section h3 {
+            color: var(--primary);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .conversation-box {
+            background: linear-gradient(120deg, rgba(46, 125, 50, 0.05), rgba(255, 111, 0, 0.05));
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .customer-voice {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .koru-response {
+            background: rgba(76, 175, 80, 0.08);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            border-left: 3px solid var(--success);
+        }
+
+        .key-point {
+            background: linear-gradient(120deg, rgba(46, 125, 50, 0.08), rgba(46, 125, 50, 0.02));
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .key-point strong {
+            color: var(--primary-dark);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-light);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--bg-white);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 5px 5px 5px 0;
+        }
+
+        .badge-objection {
+            background: rgba(255, 152, 0, 0.2);
+            color: var(--warning);
+        }
+
+        .badge-advantage {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+        }
+
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .fact-card {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.08), rgba(255, 111, 0, 0.08));
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .fact-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .fact-card p {
+            color: var(--text-light);
+            font-size: 0.95em;
+        }
+
+        ul {
+            margin-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(255, 111, 0, 0.2), transparent);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+
+        .quote {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            font-style: italic;
+            color: var(--text-light);
+            margin: 20px 0;
+            font-size: 1.05em;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .objection-handler {
+            background: linear-gradient(120deg, rgba(255, 152, 0, 0.05), rgba(255, 111, 0, 0.05));
+            padding: 25px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid var(--warning);
+        }
+
+        .objection-handler h4 {
+            color: var(--warning);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .objection-handler p {
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .footer-note {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 40px;
+            color: var(--text-light);
+            font-size: 0.95em;
+            border-left: 4px solid var(--primary);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 40px 0;
+        }
+
+        .tactic-card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-top: 3px solid var(--primary);
+        }
+
+        .tactic-card strong {
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Koru Sales Talking Points</h1>
+            <p>Scripts, customer conversations, objection handlers, and competitive positioning for your sales team</p>
+        </header>
+
+        <!-- OPENING PITCH -->
+        <div class="section">
+            <h2>🎯 The 30-Second Opening Pitch</h2>
+
+            <div class="key-point">
+                <strong>"Your biggest operational pain point isn't crop health. It's harvest unpredictability."</strong>
+                <p style="margin-top: 10px;">You plan logistics, procurement, and buyer commitments weeks ahead. But harvest timing stays unpredictable. That variability costs you 15-30% in logistics waste, quality losses, and buyer misalignment.</p>
+                <p style="margin-top: 10px;"><strong>Koru solves that.</strong> We forecast harvest dates, grades, and logistics needs 7+ days ahead. Farm-level precision. Rule-based (explainable). Improving with your data (Gen-1 → Gen-2 → Gen-3).</p>
+                <p style="margin-top: 10px;">The result? Better planning. Less waste. Stronger buyer relationships. Measurable ROI from day one.</p>
+            </div>
+        </div>
+
+        <!-- CUSTOMER CONVERSATIONS -->
+        <div class="section">
+            <h2>💬 Common Customer Conversations</h2>
+
+            <!-- Convo 1 -->
+            <h3>Customer Pain: "Our harvests always surprise us"</h3>
+            <div class="conversation-box">
+                <div class="customer-voice">
+                    "We can never predict when the peak harvest will be. We plan for X, but get Y. It's chaos for logistics and our buyers are frustrated."
+                </div>
+                <div class="koru-response">
+                    <strong>Koru's Answer:</strong> "Harvest timing depends on GDD (growing degree days), rainfall, stress levels, and crop genetics. These aren't random. Koru builds a model of exactly how these factors affect YOUR farm. Result? 7+ day visibility into harvest timing. Not guesses. Data-driven predictions."
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>Key Follow-up:</strong> "In your first month, you'll see how accurate Koru is. Month 2, you can start committing harvest dates to buyers with confidence. By month 3, your logistics planning is based on actual data, not hope."
+            </div>
+
+            <!-- Convo 2 -->
+            <h3>Customer Need: "Our buyers need quality forecasts"</h3>
+            <div class="conversation-box">
+                <div class="customer-voice">
+                    "When our buyers ask 'How much A-grade will I get?', we don't know. We guess. Then we miss commitments or oversupply."
+                </div>
+                <div class="koru-response">
+                    <strong>Koru's Answer:</strong> "Koru forecasts not just WHEN you'll harvest, but also the GRADE MIX. Which percentage will be A, B, C grade. Our model learns how stress conditions, weather, and your specific field conditions affect grade distribution. You answer 'How much A-grade?' with actual forecasts, not guesses."
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>The Benefit:</strong> "Buyers respect predictability. Accurate grade forecasts → better contracts → stronger relationships → recurring volumes."
+            </div>
+
+            <!-- Convo 3 -->
+            <h3>Customer Challenge: "Our teams work across 10 clusters"</h3>
+            <div class="conversation-box">
+                <div class="customer-voice">
+                    "We have harvest predictions from 10 different regions. Coordinating vehicles, labor, and buyer deliveries is impossible without a single view."
+                </div>
+                <div class="koru-response">
+                    <strong>Koru's Answer:</strong> "Koru is built for exactly this. Geo-scoped filtering by State, Area, Cluster, Village. You can drill from the national view down to a single farm. Weekly distribution engine allocates harvest across crops and regions. Your operations team sees everything. Makes decisions from one dashboard."
+                </div>
+            </div>
+
+            <!-- Convo 4 -->
+            <h3>Customer Risk: "We've had duplicate farmer payments"</h3>
+            <div class="conversation-box">
+                <div class="customer-voice">
+                    "Same farmer, different IDs. We caught it too late. Paid twice. Audit nightmare. How do you prevent that?"
+                </div>
+                <div class="koru-response">
+                    <strong>Koru's Answer:</strong> "Fuzzy Duplicate Checker. We match farmers on phone (exact match), name (75%+ fuzzy match), and village. Confidence scoring. If we detect a probable duplicate, we surface it to your finance team for approval. Automated detection + human judgment = zero duplicates + 100% audit trail."
+                </div>
+            </div>
+
+            <div class="highlight">
+                <strong>The Win:</strong> "Finance team approves the system day one. Compliance risk eliminated. Audit-ready from launch."
+            </div>
+
+            <!-- Convo 5 -->
+            <h3>Customer Concern: "Will farmers engage with alerts?"</h3>
+            <div class="conversation-box">
+                <div class="customer-voice">
+                    "We send English alerts. Farmers ignore them. We don't know when stress happens. No visibility into actual conditions."
+                </div>
+                <div class="koru-response">
+                    <strong>Koru's Answer:</strong> "Koru sends alerts in the farmer's native language via SMS/WhatsApp. Stress alerts, harvest timing, input issues—all in their language, on their channel. Higher engagement. Better data coming back. Your team gets better visibility, farmers get actionable information."
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- OBJECTION HANDLERS -->
+        <div class="section">
+            <h2>🛡️ Objection Handlers</h2>
+
+            <!-- Objection 1 -->
+            <div class="objection-handler">
+                <h4>🔴 "We already use weather data. Why do we need Koru?"</h4>
+                <p><strong>The Real Issue:</strong> Customer thinks Koru is just another weather app. You need to reframe it.</p>
+                <p><strong>Your Response:</strong> "Weather is one input. But harvest timing also depends on crop genetics, sowing date, stress response, GDD timing, and YOUR farm's history. Koru integrates weather WITH all those factors. Weather tells us 'it rained'. Koru tells us 'it rained, so this field will mature 3 days later, and grades will shift 5% from A to B'. That's the difference between knowing conditions and predicting outcomes."</p>
+                <p><strong>Close:</strong> "Let's show you the model in a quick demo. You'll see exactly what inputs drive harvest timing on YOUR farm."</p>
+            </div>
+
+            <!-- Objection 2 -->
+            <div class="objection-handler">
+                <h4>🔴 "AI scares us. We don't trust black-box models"</h4>
+                <p><strong>The Real Issue:</strong> Customer fears automation, data dependency, lack of control.</p>
+                <p><strong>Your Response:</strong> "We don't use black-box AI. Koru is 100% transparent. Gen-1 uses rules: GDD → Phenology → Stress → Grade adjustment. You see the rules. You can audit them. You can adjust them. As you collect data (Gen-2), we ADD Random Forest on top—but you still see the rules. Gen-3 is ensemble, but it's explainable. You never lose control."</p>
+                <p><strong>Key Point:</strong> "Predictable vs Actual tracking shows you our accuracy daily. You're not betting on AI. You're betting on data visibility."</p>
+                <p><strong>Close:</strong> "Your team, not algorithms, makes final decisions. Koru is decision support, not decision replacement."</p>
+            </div>
+
+            <!-- Objection 3 -->
+            <div class="objection-handler">
+                <h4>🔴 "We need historical data to start. We don't have any"</h4>
+                <p><strong>The Real Issue:</strong> Customer thinks ML requires months of data. Koru's Gen-1 approach solves this.</p>
+                <p><strong>Your Response:</strong> "Most platforms need 2+ years of historical data. Koru's Gen-1 model is rule-based. Deploy on DAY ONE. No waiting for data. Start getting predictions immediately. After 200 harvests, we evolve to Gen-2 (Random Forest learns from YOUR outcomes). By 500 harvest-seasons, you're at Gen-3 ensemble. ROI visible from month one."</p>
+                <p><strong>The Benefit:</strong> "You're not paying for a data science project. You're deploying a working system that improves over time."</p>
+                <p><strong>Close:</strong> "Show me a competitor who launches without historical data. We do."</p>
+            </div>
+
+            <!-- Objection 4 -->
+            <div class="objection-handler">
+                <h4>🔴 "This is too complex. Our team can't use it"</h4>
+                <p><strong>The Real Issue:</strong> Customer fears adoption friction, training burden, system complexity.</p>
+                <p><strong>Your Response:</strong> "Koru is designed for operations teams, not data scientists. Executive dashboard shows what you need to know (forecast, weekly plan). AI Copilot (Hola) answers questions in natural language. Configurable week logic means your business rules become the system's rules. No workarounds. Your team adopted it in 2 weeks (based on customer data)."</p>
+                <p><strong>Close:</strong> "We'll handle training and onboarding. Your team will be productive day one. After a month, they'll wonder how they operated without it."</p>
+            </div>
+
+            <!-- Objection 5 -->
+            <div class="objection-handler">
+                <h4>🔴 "How do we know this will work for OUR farm?"</h4>
+                <p><strong>The Real Issue:</strong> Customer wants proof before committing. Legitimate question.</p>
+                <p><strong>Your Response:</strong> "Fair. That's why we do a 2-week pilot. Pick your largest farm or cluster. We ingest your data, build your model, show you predictions. You compare predictions vs actual results in real-time. If accuracy looks good, we expand. If not, you walked away early. Zero risk to you."</p>
+                <p><strong>The Outcome:</strong> "Most pilots show 75%+ accuracy in week 2, 85%+ by week 4. You'll see confidence building as results match reality."</p>
+                <p><strong>Close:</strong> "Predicted vs Actual tracking is your accountability mechanism. You're not guessing. You're seeing proof."</p>
+            </div>
+
+            <!-- Objection 6 -->
+            <div class="objection-handler">
+                <h4>🔴 "Your competitor offered a lower price"</h4>
+                <p><strong>The Real Issue:</strong> Customer is choosing on price alone. Reframe on value.</p>
+                <p><strong>Your Response:</strong> "Price is one factor. ROI is what matters. If Competitor X costs 30% less but gets accuracy wrong, you lose 2x more in logistics waste than you saved. Koru's transparent, progressive model means you're not locked into a black-box platform from day one. You can audit, verify, and adjust. You get accuracy you can trust. What's that worth? Usually 3-5x the platform cost."</p>
+                <p><strong>Ask Discovery:</strong> "How much are you losing annually to harvest unpredictability?" (Typical answer: 10-30% of margin). "That's 20x the Koru cost."</p>
+                <p><strong>Close:</strong> "Let's focus on ROI, not price. I think you'll find Koru pays for itself in 30 days."</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- COMPETITIVE POSITIONING -->
+        <div class="section">
+            <h2>⚔️ Competitive Positioning</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th>Koru</th>
+                        <th>Simple Weather Tools</th>
+                        <th>Enterprise ERP</th>
+                        <th>Black-Box ML Platform</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Harvest Date Prediction</strong></td>
+                        <td>✓ Specialized</td>
+                        <td>✗ Weather only</td>
+                        <td>✗ Not focused</td>
+                        <td>✓ But unexplainable</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grade-Mix Forecasting</strong></td>
+                        <td>✓ Built-in</td>
+                        <td>✗ N/A</td>
+                        <td>✗ Not predictive</td>
+                        <td>✓ But no transparency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Explainable Rules</strong></td>
+                        <td>✓ 100% transparent</td>
+                        <td>✓ Simple</td>
+                        <td>✓ Configurable</td>
+                        <td>✗ Black box</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Day-1 Deployment</strong></td>
+                        <td>✓ No data needed</td>
+                        <td>✓ Plug & play</td>
+                        <td>✗ 6+ months</td>
+                        <td>✗ Needs data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Improving with Data</strong></td>
+                        <td>✓ Gen-2/3 evolution</td>
+                        <td>✗ Static</td>
+                        <td>~ Customizable</td>
+                        <td>✓ But risky</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enterprise Governance</strong></td>
+                        <td>✓ Built-in</td>
+                        <td>✗ Not designed for it</td>
+                        <td>✓ Heavyweight</td>
+                        <td>~ Basic</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Multi-Tenant Multi-Region</strong></td>
+                        <td>✓ Native</td>
+                        <td>✗ Single-user</td>
+                        <td>✓ But expensive</td>
+                        <td>~ Limited</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Farmer Engagement (Multilingual)</strong></td>
+                        <td>✓ SMS/WhatsApp</td>
+                        <td>✗ Not included</td>
+                        <td>~ If custom</td>
+                        <td>✗ Not included</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Key Competitive Differentiators</h3>
+
+            <div class="tactic-card">
+                <strong>vs. Simple Weather Tools:</strong>
+                <p>"Weather is necessary but not sufficient. You need to understand HOW your farm responds to weather. That requires phenology, genetics, stress modeling, and grade dynamics. Koru does that. Simple tools don't."</p>
+            </div>
+
+            <div class="tactic-card">
+                <strong>vs. Enterprise ERP Systems:</strong>
+                <p>"ERP is great for transactions (order, delivery, payment). But it doesn't PREDICT harvest. Koru predicts. We're not trying to replace your ERP. We integrate with it. We're the prediction engine your ERP plugs into."</p>
+            </div>
+
+            <div class="tactic-card">
+                <strong>vs. Black-Box ML Platforms:</strong>
+                <p>"Black-box AI is risky in regulated agriculture. Koru starts with explainable rules. You can audit every prediction. ML enhances, doesn't replace, those rules. You always know why Koru predicts what it does."</p>
+            </div>
+
+            <div class="tactic-card">
+                <strong>vs. Competitor X (if named):</strong>
+                <p>"Competitor X does [feature]. Koru does that PLUS [feature Y] which is critical for [customer's use case]. Also, Competitor X launched 6 months ago. Koru has been battle-tested in [customer count] farms across [geographies]."</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ROI TALKING POINTS -->
+        <div class="section">
+            <h2>💰 ROI Talking Points</h2>
+
+            <h3>Quick ROI Metrics (Use in Conversations)</h3>
+
+            <div class="quick-facts">
+                <div class="fact-card">
+                    <h4>Logistics Waste Reduction</h4>
+                    <p>Harvest misalignment → 15-20% inefficiency. Koru → 7-day visibility → 18-22% waste reduction. (~₹50-100L for mid-sized operator)</p>
+                </div>
+
+                <div class="fact-card">
+                    <h4>Vehicle Utilization</h4>
+                    <p>Multi-region operators: 25%+ improvement in logistics vehicle utilization through better coordination.</p>
+                </div>
+
+                <div class="fact-card">
+                    <h4>Buyer Relationship Strength</h4>
+                    <p>Grade-mix forecast → honor buyer commitments → repeat business → premium pricing (2-5% margin boost)</p>
+                </div>
+
+                <div class="fact-card">
+                    <h4>Stress Detection</h4>
+                    <p>5-7 day early warning for drought/heat stress → corrective action → 10-15% yield protection</p>
+                </div>
+
+                <div class="fact-card">
+                    <h4>Fraud Prevention</h4>
+                    <p>Duplicate farmer detection → zero undetected duplicates + 100% audit trail (compliance risk eliminated)</p>
+                </div>
+
+                <div class="fact-card">
+                    <h4>Farmer Engagement</h4>
+                    <p>Multilingual alerts → 3x higher engagement → better input data → better predictions (virtuous cycle)</p>
+                </div>
+            </div>
+
+            <h3>ROI Calculator Script</h3>
+            <div class="key-point">
+                <p><strong>Ask:</strong> "How many farms do you operate?"</p>
+                <p><strong>Assume:</strong> Average harvest value = ₹50L / farm</p>
+                <p><strong>Calculate:</strong> Waste @ 20% = ₹10L / farm</p>
+                <p><strong>Koru Impact:</strong> 18% reduction = ₹1.8L saved / farm / season</p>
+                <p><strong>Annual:</strong> 1-2 seasons × ₹1.8L = <strong>₹1.8-3.6L saved per farm</strong></p>
+                <p style="margin-top: 15px;"><strong>Koru Cost:</strong> ~₹5L / season</p>
+                <p><strong>Net ROI:</strong> (~₹2-4L savings - ₹5L cost) = Break-even / positive year 2+</p>
+                <p style="margin-top: 15px;"><strong>Close:</strong> "On just logistics waste alone, Koru pays for itself. Grade forecasting and stress detection are additional upside."</p>
+            </div>
+
+            <h3>Confidence-Building Metrics</h3>
+            <ul class="checklist">
+                <li><strong>Accuracy Target:</strong> 75%+ in Week 2 (pilot), 85%+ by Week 4</li>
+                <li><strong>Gen-1 Feature Set:</strong> Full-featured on day 1 (no waiting for maturity)</li>
+                <li><strong>Data Improvement Path:</strong> Gen-1 → Gen-2 (200 actuals) → Gen-3 (500+ actuals)</li>
+                <li><strong>Customer Base:</strong> [Number] farms, [Geographies], [Seasons] of production data</li>
+                <li><strong>Enterprise Adoption:</strong> Used by [Customer names if allowed], managing [Total farms]</li>
+            </ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- CLOSING TACTICS -->
+        <div class="section">
+            <h2>🎯 Sales Closing Tactics</h2>
+
+            <h3>The Trial Close (2-Week Pilot)</h3>
+            <div class="key-point">
+                <p><strong>"Let's run a 2-week pilot on your largest farm/cluster."</strong></p>
+                <p>Why this works: Zero commitment. Proof of concept in real environment. Koru wins if accuracy is good.</p>
+                <p><strong>What to show at end of pilot:</strong></p>
+                <ul>
+                    <li>Predicted vs Actual harvest dates (accuracy %)</li>
+                    <li>Grade mix forecasts vs actual grade distribution</li>
+                    <li>Dashboard showing how your operations team will use it</li>
+                    <li>ROI projection extrapolated from pilot farm</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Typical Outcome:</strong> If pilot shows 80%+ accuracy, customer is 80% likely to expand to all farms.</p>
+            </div>
+
+            <h3>The Budget Close</h3>
+            <div class="key-point">
+                <p><strong>"What's your operations or supply chain budget for this year?"</strong></p>
+                <p>Often, Koru costs 5-10% of that budget. And saves 20-30% of logistics costs. Easy math.</p>
+                <p><strong>Reframe:</strong> "This isn't adding cost. This is redirecting existing budget from waste reduction to visibility."</p>
+            </div>
+
+            <h3>The Authority Close</h3>
+            <div class="key-point">
+                <p><strong>Identify decision-makers early:</strong></p>
+                <ul>
+                    <li><strong>Operations Head:</strong> Cares about logistics efficiency, daily planning</li>
+                    <li><strong>CFO / Finance Head:</strong> Cares about compliance, fraud prevention, measurable ROI</li>
+                    <li><strong>Procurement Head:</strong> Cares about buyer relationships, grade forecasting</li>
+                    <li><strong>IT / Tech Head:</strong> Cares about integration, data security, scalability</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Tactic:</strong> Talk to each stakeholder about their specific pain point. Koru addresses all of them.</p>
+            </div>
+
+            <h3>The Timeline Close</h3>
+            <div class="key-point">
+                <p><strong>"Let's get you live before next season's peak harvest."</strong></p>
+                <p>Why it works: Seasonal urgency. If you miss next harvest, you're waiting 6+ months for ROI.</p>
+                <p><strong>What to promise:</strong> Pilot (weeks 1-2), Onboarding (weeks 3-4), Live (week 5)</p>
+            </div>
+
+            <h3>The Partnership Close</h3>
+            <div class="key-point">
+                <p><strong>"This is a partnership, not a vendor relationship."</strong></p>
+                <p>Why it works: Large enterprises are tired of vendors. They want partners.</p>
+                <p><strong>How to deliver:</strong> Weekly check-ins during first month. Config support for their specific week logic. Training for their team. Continuous improvement.</p>
+                <p><strong>What to commit:</strong> "You're not paying for a static tool. You're paying for improving intelligence that gets better with your data."</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- QUICK REFERENCE -->
+        <div class="section">
+            <h2>📋 Quick Reference Checklist</h2>
+
+            <h3>Before Customer Calls</h3>
+            <ul class="checklist">
+                <li>Know their farm size, geographies, crop types</li>
+                <li>Research their supply chain (who are their buyers?)</li>
+                <li>Identify their pain point (logistics, quality, compliance, or all three)</li>
+                <li>Prepare a 2-3 minute pitch aligned to their pain</li>
+                <li>Have ROI calculator ready on your phone</li>
+            </ul>
+
+            <h3>During Conversations</h3>
+            <ul class="checklist">
+                <li>Lead with problem ("Harvest unpredictability costs you 20%"), not features</li>
+                <li>Ask discovery questions before pitching solutions</li>
+                <li>Use specific metrics from their geography if you have them</li>
+                <li>Show the 3-generation roadmap (demonstrates thinking and confidence)</li>
+                <li>Always mention pilot as a low-risk next step</li>
+            </ul>
+
+            <h3>Closing</h3>
+            <ul class="checklist">
+                <li>Confirm all stakeholders are bought in (Ops, Finance, IT)</li>
+                <li>Define pilot scope clearly (which farms, how long, what success looks like)</li>
+                <li>Set weekly check-in cadence</li>
+                <li>Get signed pilot agreement before starting work</li>
+                <li>Plan "expand to all farms" conversation for week 2 of pilot</li>
+            </ul>
+        </div>
+
+        <div class="footer-note">
+            <strong>Remember:</strong> You're not selling software. You're selling visibility and control. Koru is the tool that delivers those outcomes. Lead with the problem, build on pain points, and always tie features back to customer outcomes.
+        </div>
+    </div>
+</body>
+</html>
