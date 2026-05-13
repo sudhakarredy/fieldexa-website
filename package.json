@@ -6,7 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "build": "cd website && npm ci --include=dev && npm run build && cd .. && node scripts/sync-dist.mjs",
+    "build": "cd website && npm install --include=dev --legacy-peer-deps && npm run build && cd .. && node scripts/sync-dist.mjs",
     "lint": "cd website && npm run lint",
     "preview": "wrangler dev",
     "deploy": "wrangler deploy"
