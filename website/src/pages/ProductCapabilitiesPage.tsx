@@ -96,7 +96,6 @@ const capabilityScreenshots: Record<string, string[]> = {
 }
 
 export function ProductCapabilitiesPage() {
-  const [expandedCapability, setExpandedCapability] = useState<string | null>(null)
   const [selectedScreenshot, setSelectedScreenshot] = useState<SelectedScreenshot | null>(null)
 
   const capsByCategory = advancedCapabilities.reduce((acc, cap) => {
@@ -119,12 +118,10 @@ export function ProductCapabilitiesPage() {
     'Infrastructure',
   ]
 
-  const toggleExpanded = (title: string) => {
-    setExpandedCapability(expandedCapability === title ? null : title)
-  }
-
   useEffect(() => {
     if (!selectedScreenshot) return
+
+    const previousOverflow = document.body.style.overflow
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -136,7 +133,7 @@ export function ProductCapabilitiesPage() {
     window.addEventListener('keydown', onKeyDown)
 
     return () => {
-      document.body.style.overflow = ''
+      document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [selectedScreenshot])
@@ -146,7 +143,7 @@ export function ProductCapabilitiesPage() {
       <PageSection
         eyebrow="Product Capabilities"
         title="15 Production-Ready Capabilities"
-        subtitle="Every feature is built-in, tested, and deployed. Click any capability to see it live in our platform."
+        subtitle="Every feature is built-in, tested, and deployed. Click any capability image to see it live in our platform."
       />
 
       {categoryOrder.map((category) => {
@@ -154,81 +151,81 @@ export function ProductCapabilitiesPage() {
         if (!caps || caps.length === 0) return null
 
         return (
-          <section key={category} className="page-section">
+          <section key={category} className="page-section capability-category-section">
             <div className="container">
               <h2>{category}</h2>
               <div className="capabilities-grid">
                 {caps.map((cap: Capability) => {
-                  const isExpanded = expandedCapability === cap.title
                   const screenshots = capabilityScreenshots[cap.title] || []
-                  const hasScreenshots = screenshots.length > 0
+                  const firstScreenshot = screenshots.length > 0 ? screenshotMap[screenshots[0]] : null
 
                   return (
-                    <div
+                    <article
                       key={cap.title}
-                      className={`capability-card-wrapper ${isExpanded ? 'expanded' : ''}`}
+                      className={`capability-card ${firstScreenshot ? 'capability-card-with-media' : ''}`}
                     >
-                      {hasScreenshots ? (
-                        <button
-                          type="button"
-                          className="capability-card clickable"
-                          onClick={() => toggleExpanded(cap.title)}
-                        >
-                          <h3>{cap.title}</h3>
-                          <p>{cap.description}</p>
-                          <div className="capability-card-footer">
-                            <span className="capability-badge">{cap.category}</span>
-                            <span className="capability-link">
-                              {isExpanded ? '▼ Hide' : '▶ See in Action'}
-                            </span>
-                          </div>
-                        </button>
-                      ) : (
-                        <article className="capability-card">
-                          <h3>{cap.title}</h3>
-                          <p>{cap.description}</p>
-                          <div className="capability-card-footer">
-                            <span className="capability-badge">{cap.category}</span>
-                          </div>
-                        </article>
-                      )}
-
-                      {isExpanded && hasScreenshots && (
-                        <div className="capability-screenshots">
-                          <div className="screenshots-grid">
-                            {screenshots.map((screenKey) => {
-                              const screenshot = screenshotMap[screenKey]
-                              return screenshot ? (
-                                <figure key={screenKey} className="screenshot-preview">
-                                  <button
-                                    type="button"
-                                    className="screenshot-preview-button"
-                                    onClick={() =>
-                                      setSelectedScreenshot({
-                                        label: screenshot.label,
-                                        src: screenshot.src,
-                                        platform: screenshot.platform,
-                                        capabilityTitle: cap.title,
-                                        capabilityDescription: cap.description,
-                                        alt: `${screenshot.label} preview for ${cap.title}`,
-                                      })
-                                    }
-                                    aria-label={`Enlarge ${screenshot.label} for ${cap.title}`}
-                                  >
-                                    <img src={screenshot.src} alt={screenshot.label} loading="lazy" />
-                                  </button>
-                                  <figcaption>
-                                    <strong>{screenshot.label}</strong>
-                                    <span className="platform-badge">{screenshot.platform === 'web' ? '💻 Web' : '📱 Mobile'}</span>
-                                    <span className="screenshot-hint">Click to zoom</span>
-                                  </figcaption>
-                                </figure>
-                              ) : null
-                            })}
-                          </div>
+                      <div className="capability-card-copy">
+                        <h3>{cap.title}</h3>
+                        <p>{cap.description}</p>
+                        <div className="capability-card-footer">
+                          <span className="capability-badge">{cap.category}</span>
+                          {firstScreenshot ? (
+                            <button
+                              type="button"
+                              className="capability-link-button"
+                              onClick={() =>
+                                setSelectedScreenshot({
+                                  label: firstScreenshot.label,
+                                  src: firstScreenshot.src,
+                                  platform: firstScreenshot.platform,
+                                  capabilityTitle: cap.title,
+                                  capabilityDescription: cap.description,
+                                  alt: `${firstScreenshot.label} preview for ${cap.title}`,
+                                })
+                              }
+                            >
+                              View images
+                            </button>
+                          ) : null}
                         </div>
-                      )}
-                    </div>
+                      </div>
+
+                      {screenshots.length > 0 ? (
+                        <div className="capability-card-visuals" aria-label={`${cap.title} screenshots`}>
+                          {screenshots.map((screenKey) => {
+                            const screenshot = screenshotMap[screenKey]
+                            return screenshot ? (
+                              <figure key={screenKey} className="screenshot-preview">
+                                <button
+                                  type="button"
+                                  className="screenshot-preview-button"
+                                  onClick={() =>
+                                    setSelectedScreenshot({
+                                      label: screenshot.label,
+                                      src: screenshot.src,
+                                      platform: screenshot.platform,
+                                      capabilityTitle: cap.title,
+                                      capabilityDescription: cap.description,
+                                      alt: `${screenshot.label} preview for ${cap.title}`,
+                                    })
+                                  }
+                                  aria-label={`Enlarge ${screenshot.label} for ${cap.title}`}
+                                >
+                                  <img src={screenshot.src} alt={screenshot.label} loading="lazy" />
+                                </button>
+                                <figcaption>
+                                  <strong>{screenshot.label}</strong>
+                                  <span className="platform-badge">
+                                    {screenshot.platform === 'web' ? '💻 Web' : '📱 Mobile'}
+                                  </span>
+                                  <span className="screenshot-hint">Click to zoom</span>
+                                </figcaption>
+                              </figure>
+                            ) : null
+                          })}
+                        </div>
+                      ) : null}
+                    </article>
                   )
                 })}
               </div>
@@ -272,7 +269,9 @@ export function ProductCapabilitiesPage() {
             >
               Close
             </button>
-            <p className="proof-lightbox-platform">{selectedScreenshot.platform === 'web' ? 'Web view' : 'Mobile view'}</p>
+            <p className="proof-lightbox-platform">
+              {selectedScreenshot.platform === 'web' ? 'Web view' : 'Mobile view'}
+            </p>
             <h3>{selectedScreenshot.label}</h3>
             <p>
               {selectedScreenshot.capabilityTitle}: {selectedScreenshot.capabilityDescription}
