@@ -29,8 +29,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build website
-        run: cd website && npm run build
+      - name: Type check
+        run: cd website && npx tsc -b
+
+      - name: Vite build
+        run: cd website && npx vite build
 
       - name: Sync dist
         run: node scripts/sync-dist.mjs
