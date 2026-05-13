@@ -9,6 +9,51 @@ export const navItems = [
   { label: 'Contact', path: '/contact' },
 ]
 
+export const businessProblems = [
+  {
+    title: 'Yield Unpredictability',
+    problem: 'Export houses and farmers lack visibility into expected harvests, leading to supply chain bottlenecks and missed buyer commitments.',
+    solution: 'AI-powered harvest forecasting predicts yield 7-14 days in advance, enabling smart procurement and transport planning.',
+    impact: '+40% supply chain efficiency',
+    icon: '📊'
+  },
+  {
+    title: 'Fragmented Field Operations',
+    problem: 'Farm visits, input tracking, and harvest data are scattered across spreadsheets, calls, and paper records—creating bottlenecks and errors.',
+    solution: 'Single platform connects farmer onboarding, agreements, inputs, harvests, and field visits in one operational record.',
+    impact: '60% faster issue resolution',
+    icon: '🔗'
+  },
+  {
+    title: 'Farmer Information Asymmetry',
+    problem: 'Farmers lack real-time data about their crops, pricing, and obligations—limiting their ability to plan and negotiate fairly.',
+    solution: 'Real-time mobile app and SMS notifications give farmers visibility into their own data, alerts, and performance.',
+    impact: 'Farmers 3x more engaged',
+    icon: '📱'
+  },
+  {
+    title: 'Compliance & Traceability Burden',
+    problem: 'Meeting EUDR, sustainability, and buyer requirements requires manual record collection and validation—expensive and error-prone.',
+    solution: 'Traceability data is automatically captured and audit-ready throughout operations.',
+    impact: '80% audit prep time reduction',
+    icon: '✅'
+  },
+  {
+    title: 'Unsustainable Scale',
+    problem: 'Managing 100s of farmers across regions with manual coordination is impossible—growth stalls at team capacity.',
+    solution: 'Geo-scoped dashboards and role-based workflows scale operations across clusters and villages without linearly growing teams.',
+    impact: '5-10x scaling potential',
+    icon: '📈'
+  },
+  {
+    title: 'Revenue Leakage',
+    problem: 'Without quality/grade visibility upfront, export houses settle for lower prices or lose buyer relationships over unexpected quality mismatches.',
+    solution: 'Grade-mix forecasting and quality predictions enable buyer alignment and premium pricing for consistent quality.',
+    impact: '15-25% revenue uplift',
+    icon: '💰'
+  },
+]
+
 export const corePillars = [
   {
     title: 'Predictive Operations Intelligence',
@@ -178,6 +223,37 @@ export const platformModules = [
     title: 'Mobile-Assisted Operations',
     description:
       'Enable field workflows that support distributed execution where teams need timely data capture and follow-up.',
+  },
+]
+
+export const outcomesAndImpact = [
+  {
+    title: 'Higher Revenue for Export Houses',
+    description:
+      'Predictive planning, grade-mix forecasting, and buyer alignment unlock 15-25% revenue uplift through premium pricing, reduced waste, and supply chain efficiency.',
+    metric: '+15-25% Revenue',
+    focus: 'Export Houses'
+  },
+  {
+    title: 'Farmer Empowerment & Fair Outcomes',
+    description:
+      'Real-time data, transparent pricing, and direct communication give farmers agency over their livelihoods, leading to better decisions and fairer terms.',
+    metric: '3x More Engaged',
+    focus: 'Farmers'
+  },
+  {
+    title: 'Sustainability & Compliance',
+    description:
+      'Automated traceability, EUDR-ready records, and environmental tracking make sustainability a business advantage, not a compliance burden.',
+    metric: '80% Audit Prep Reduction',
+    focus: 'Planet'
+  },
+  {
+    title: 'Scalable Growth Without Chaos',
+    description:
+      'Geo-scoped operations, mobile-first workflows, and AI-driven alerts let export houses manage 5-10x more farms with the same team structure.',
+    metric: '5-10x Scale Potential',
+    focus: 'Growth'
   },
 ]
 

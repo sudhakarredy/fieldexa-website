@@ -2,23 +2,36 @@ import { useState } from 'react'
 import { PageSection } from '../components/PageSection'
 import { advancedCapabilities } from '../content'
 
-// Import screenshot images
-import homeImg from '../assets/koru/Mobile_Screenshots/Home-1.jpg'
-import farmersImg from '../assets/koru/farmers.jpg'
-import farmsImg from '../assets/koru/Mobile_Screenshots/Farms-1.jpg'
-import agreementsImg from '../assets/koru/agreements.jpg'
-import harvestImg from '../assets/koru/Mobile_Screenshots/Harvest-1.jpg'
-import alertsImg from '../assets/koru/alerts.jpg'
-import fieldVisitImg from '../assets/koru/Mobile_Screenshots/FieldVisit-1.jpg'
+// Web App Screenshots - Direct imports from Images&Branding
+import webHome from '../../../Images&Branding/Koru/WebApp Screenshots/Home.png'
+import webHola from '../../../Images&Branding/Koru/WebApp Screenshots/Hola.png'
+import webHarvestPrediction from '../../../Images&Branding/Koru/WebApp Screenshots/Harvest & Grade-Mix Predictions.png'
+import webWeeklyHarvest from '../../../Images&Branding/Koru/WebApp Screenshots/Weekly Harvest Prediction.png'
+import webWeeklyTransport from '../../../Images&Branding/Koru/WebApp Screenshots/Weekly Harvest Transport Planning.png'
+import webGeoIntelligence from '../../../Images&Branding/Koru/WebApp Screenshots/Geo Performance Intelligence.png'
+import webGradeGroups from '../../../Images&Branding/Koru/WebApp Screenshots/Grade Groups.png'
+import webAiAlerts from '../../../Images&Branding/Koru/WebApp Screenshots/AI Alerts for Management.png'
+import webTraceability from '../../../Images&Branding/Koru/WebApp Screenshots/Traceability Reports.png'
+import webActionBoard from '../../../Images&Branding/Koru/WebApp Screenshots/My Action Board.png'
+import webExcelReports from '../../../Images&Branding/Koru/WebApp Screenshots/Excel Reports.png'
+import webSms from '../../../Images&Branding/Koru/WebApp Screenshots/SMS.png'
+import webAiAgents from '../../../Images&Branding/Koru/WebApp Screenshots/AI Agents.png'
 
-const screenImages: Record<string, string> = {
-  Home: homeImg,
-  Farmers: farmersImg,
-  Farms: farmsImg,
-  Agreements: agreementsImg,
-  Harvest: harvestImg,
-  Alerts: alertsImg,
-  FieldVisit: fieldVisitImg,
+// Mobile Screenshots
+import mobileHome from '../../../Images&Branding/Koru/Mobile Screenshots/Home-1.jpg'
+import mobileFarmers from '../../../Images&Branding/Koru/Mobile Screenshots/Farmers-1.jpg'
+import mobileFarms from '../../../Images&Branding/Koru/Mobile Screenshots/Farms-1.jpg'
+import mobileAgreements from '../../../Images&Branding/Koru/Mobile Screenshots/Agreements-1.jpg'
+import mobileHarvest from '../../../Images&Branding/Koru/Mobile Screenshots/Harvest-1.jpg'
+import mobileAlerts from '../../../Images&Branding/Koru/Mobile Screenshots/Alerts-1.jpg'
+import mobileFieldVisit from '../../../Images&Branding/Koru/Mobile Screenshots/FieldVisit-1.jpg'
+import mobileInputs from '../../../Images&Branding/Koru/Mobile Screenshots/Input-1.jpg'
+import mobileReports from '../../../Images&Branding/Koru/Mobile Screenshots/Reports-1.jpg'
+
+interface Screenshot {
+  label: string
+  src: string
+  platform: 'web' | 'mobile'
 }
 
 interface Capability {
@@ -28,10 +41,54 @@ interface Capability {
   relatedScreens?: string[]
 }
 
+// Map screenshot names to actual image paths and metadata
+const screenshotMap: Record<string, Screenshot> = {
+  'Home': { label: 'Home Dashboard', src: webHome, platform: 'web' },
+  'Hola': { label: 'AI Copilot (Hola)', src: webHola, platform: 'web' },
+  'Harvest Prediction': { label: 'Harvest & Grade Mix Predictions', src: webHarvestPrediction, platform: 'web' },
+  'Weekly Harvest': { label: 'Weekly Harvest Forecast', src: webWeeklyHarvest, platform: 'web' },
+  'Transport Planning': { label: 'Transport Planning', src: webWeeklyTransport, platform: 'web' },
+  'Geo Intelligence': { label: 'Geo-Scoped Analytics', src: webGeoIntelligence, platform: 'web' },
+  'Grade Groups': { label: 'Grade Management', src: webGradeGroups, platform: 'web' },
+  'AI Alerts': { label: 'AI Alert Management', src: webAiAlerts, platform: 'web' },
+  'Traceability': { label: 'Traceability Reports', src: webTraceability, platform: 'web' },
+  'Action Board': { label: 'Action Board', src: webActionBoard, platform: 'web' },
+  'Excel Reports': { label: 'Excel Exports', src: webExcelReports, platform: 'web' },
+  'SMS Notifications': { label: 'SMS & Messaging', src: webSms, platform: 'web' },
+  'AI Agents': { label: 'AI Agents', src: webAiAgents, platform: 'web' },
+  'Mobile Home': { label: 'Mobile Dashboard', src: mobileHome, platform: 'mobile' },
+  'Mobile Farmers': { label: 'Farmer Management', src: mobileFarmers, platform: 'mobile' },
+  'Mobile Farms': { label: 'Farm Records', src: mobileFarms, platform: 'mobile' },
+  'Mobile Agreements': { label: 'Agreements', src: mobileAgreements, platform: 'mobile' },
+  'Mobile Harvest': { label: 'Harvest Tracking', src: mobileHarvest, platform: 'mobile' },
+  'Mobile Alerts': { label: 'Alert Response', src: mobileAlerts, platform: 'mobile' },
+  'Mobile Field Visit': { label: 'Field Visits', src: mobileFieldVisit, platform: 'mobile' },
+  'Mobile Inputs': { label: 'Input Distribution', src: mobileInputs, platform: 'mobile' },
+  'Mobile Reports': { label: 'Reports & Analytics', src: mobileReports, platform: 'mobile' },
+}
+
+// Capability to screenshot mapping
+const capabilityScreenshots: Record<string, string[]> = {
+  'AI Operations Copilot (Hola)': ['Hola', 'Home'],
+  'Predictive Harvest Intelligence': ['Harvest Prediction', 'Mobile Harvest'],
+  'Grade-Mix Forecasting': ['Grade Groups', 'Harvest Prediction'],
+  'Predicted vs Actual Harvest Tracking': ['Harvest Prediction', 'Mobile Harvest'],
+  'Weekly Harvest Prediction for Transport Planning': ['Weekly Harvest', 'Transport Planning', 'Mobile Harvest'],
+  'Configurable Week Logic Per Client': ['Weekly Harvest'],
+  'Crop-Wise Distribution Engine': ['Weekly Harvest', 'Mobile Harvest'],
+  'Geo-Scoped Planning and Analytics': ['Geo Intelligence', 'Mobile Farms'],
+  'Executive Dashboard with Visual Planning Widgets': ['Home', 'Mobile Home'],
+  'Large-Scale Report Performance': ['Excel Reports', 'Mobile Reports'],
+  'Management Alerting and Prioritization': ['AI Alerts', 'Mobile Alerts'],
+  'Traceability-Ready Reporting Suite': ['Traceability', 'Mobile Agreements'],
+  'Fuzzy Duplicate Detection': ['Mobile Farmers'],
+  'Multilingual Communication Framework': ['SMS Notifications', 'Mobile Alerts'],
+  'Super Admin Domain Controls': []
+}
+
 export function ProductCapabilitiesPage() {
   const [expandedCapability, setExpandedCapability] = useState<string | null>(null)
 
-  // Group capabilities by category
   const capsByCategory = advancedCapabilities.reduce((acc, cap) => {
     const category = cap.category || 'Other'
     if (!acc[category]) acc[category] = []
@@ -60,8 +117,8 @@ export function ProductCapabilitiesPage() {
     <>
       <PageSection
         eyebrow="Product Capabilities"
-        title="Enterprise-Grade Agricultural Operations Platform"
-        subtitle="FIELDexa Koru delivers 15+ advanced capabilities spanning predictive intelligence, compliance-ready operations, and distributed team coordination. All built-in and production-ready. Click any capability to see it in action."
+        title="15 Production-Ready Capabilities"
+        subtitle="Every feature is built-in, tested, and deployed. Click any capability to see it live in our platform."
       />
 
       {categoryOrder.map((category) => {
@@ -75,7 +132,8 @@ export function ProductCapabilitiesPage() {
               <div className="capabilities-grid">
                 {caps.map((cap: Capability) => {
                   const isExpanded = expandedCapability === cap.title
-                  const hasScreenshots = cap.relatedScreens && cap.relatedScreens.length > 0
+                  const screenshots = capabilityScreenshots[cap.title] || []
+                  const hasScreenshots = screenshots.length > 0
 
                   return (
                     <div
@@ -108,12 +166,15 @@ export function ProductCapabilitiesPage() {
                       {isExpanded && hasScreenshots && (
                         <div className="capability-screenshots">
                           <div className="screenshots-grid">
-                            {cap.relatedScreens?.map((screenName) => {
-                              const imgPath = screenImages[screenName]
-                              return imgPath ? (
-                                <figure key={screenName} className="screenshot-preview">
-                                  <img src={imgPath} alt={`${cap.title} - ${screenName}`} />
-                                  <figcaption>{screenName}</figcaption>
+                            {screenshots.map((screenKey) => {
+                              const screenshot = screenshotMap[screenKey]
+                              return screenshot ? (
+                                <figure key={screenKey} className="screenshot-preview">
+                                  <img src={screenshot.src} alt={screenshot.label} loading="lazy" />
+                                  <figcaption>
+                                    <strong>{screenshot.label}</strong>
+                                    <span className="platform-badge">{screenshot.platform === 'web' ? '💻 Web' : '📱 Mobile'}</span>
+                                  </figcaption>
                                 </figure>
                               ) : null
                             })}
@@ -131,28 +192,22 @@ export function ProductCapabilitiesPage() {
 
       <section className="page-section page-section-muted">
         <div className="container">
-          <h2>Integration & Architecture</h2>
+          <h2>Technical Foundation</h2>
           <ul className="bullet-list">
             <li>
-              <strong>Predictive Model Evolution:</strong> Rule-based GDD model (Gen-1) →
-              Random Forest (after 200+ plot actuals) → Ensemble methods (after 500+ plot-seasons) for
-              continuously improving accuracy.
+              <strong>3-Generation Predictive Models:</strong> Rule-based GDD (Gen-1) → Random Forest (200+ actuals) → Ensemble (500+ seasons) for continuously improving accuracy.
             </li>
             <li>
-              <strong>Weather Intelligence:</strong> Open-Meteo daily ingestion for temperature,
-              humidity, rainfall, and derived GDD calculations.
+              <strong>Real-Time Weather Integration:</strong> Open-Meteo daily ingestion for temperature, humidity, rainfall, and derived GDD calculations.
             </li>
             <li>
-              <strong>Satellite Integration:</strong> Sentinel-2 NDVI week 5-6 ingestion with cloud
-              fallback and quality scoring.
+              <strong>Satellite Intelligence:</strong> Sentinel-2 NDVI week 5-6 ingestion with quality scoring and cloud fallback logic.
             </li>
             <li>
-              <strong>Data Quality Automation:</strong> Fuzzy duplicate detection across phone, name,
-              and village for clean farmer records.
+              <strong>Data Quality Automation:</strong> Fuzzy duplicate detection across phone, name, and village with approval workflows.
             </li>
             <li>
-              <strong>Enterprise Governance:</strong> Role-based access control, tenant isolation,
-              sensitive data policies, and full audit trails.
+              <strong>Enterprise Security:</strong> Multi-tenant isolation, RBAC, sensitive data policies, and full audit trails at database level.
             </li>
           </ul>
         </div>
