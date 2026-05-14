@@ -1,6 +1,6 @@
 import { PageSection } from '../components/PageSection'
 import { platformModules } from '../content'
-import alertsImage from '../assets/koru/alerts.jpg'
+import architectureImage from '../assets/koru/koru_architecture.png'
 
 export function PlatformPage() {
   return (
@@ -10,13 +10,23 @@ export function PlatformPage() {
         title="A Practical Platform for Distributed Field Operations"
         subtitle="FIELDexa is designed to connect operational records, field activity, and management visibility without forcing teams into disconnected tools."
       >
-        <div className="module-grid">
-          {platformModules.map((module) => (
-            <article key={module.title} className="info-card">
-              <h2>{module.title}</h2>
-              <p>{module.description}</p>
-            </article>
-          ))}
+        <div className="platform-overview-layout">
+          <div className="platform-module-column">
+            <div className="module-grid platform-module-grid">
+              {platformModules.map((module) => (
+                <article key={module.title} className="info-card">
+                  <h2>{module.title}</h2>
+                  <p>{module.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <figure className="platform-architecture-card">
+            <img
+              src={architectureImage}
+              alt="Koru architecture blueprint showing farmer, farm, agreement, operational tracking, web frontend, backend API, database, mobile sync, and security layers."
+            />
+          </figure>
         </div>
       </PageSection>
 
@@ -31,24 +41,6 @@ export function PlatformPage() {
         </div>
       </section>
 
-      <section className="page-section">
-        <div className="container">
-          <h2>Visible Action Tracking</h2>
-          <p className="section-subtitle">
-            The platform is built to keep exceptions, follow-up status, and field-level coordination in
-            view for the teams responsible for response.
-          </p>
-          <div className="screenshot-grid screenshot-grid-single">
-            <figure className="screenshot-card">
-              <img src={alertsImage} alt="Koru alerts view showing issue status and farmer-linked alert records." />
-              <figcaption>
-                Alert workflows help operating teams see new, in-progress, and closed issues with linked
-                farmer and farm context.
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
     </>
   )
 }
