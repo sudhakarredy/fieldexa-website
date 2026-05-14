@@ -26,6 +26,9 @@ export function SolutionsHubPage() {
               <Link to="/solutions/koru" className="cta-button">
                 Explore Koru
               </Link>
+              <Link to="/solutions/koru#koru-capabilities" className="cta-link">
+                View Capabilities
+              </Link>
               <Link to="/platform" className="cta-link">
                 View Platform Architecture
               </Link>

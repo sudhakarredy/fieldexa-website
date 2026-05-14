@@ -309,7 +309,7 @@ export function SolutionsPage() {
         </div>
       </PageSection>
 
-      <section className="page-section page-section-muted">
+      <section id="koru-capabilities" className="page-section page-section-muted">
         <div className="container">
           <h2>What Koru Delivers in Production</h2>
           <p className="section-subtitle">
