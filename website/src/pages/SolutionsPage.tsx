@@ -264,9 +264,9 @@ export function SolutionsPage() {
   return (
     <>
       <PageSection
-        eyebrow="Solutions"
-        title="Koru Contract Farming OS for Scalable Field Execution"
-        subtitle="Koru unifies grower onboarding, seasonal commercial controls, field intelligence, harvest traceability, and enterprise integration in one operations-grade system."
+        eyebrow="Solutions / Koru"
+        title="Koru: The Contract Farming Operating System"
+        subtitle="Koru is FIELDexa's enterprise solution for grower networks, combining field execution, prediction, traceability, AI-assisted operations, and integration readiness in one system."
       >
         <div className="koru-origin-card">
           <div className="koru-origin-text">
@@ -311,10 +311,10 @@ export function SolutionsPage() {
 
       <section className="page-section page-section-muted">
         <div className="container">
-          <h2>Capability Architecture and Proof</h2>
+          <h2>What Koru Delivers in Production</h2>
           <p className="section-subtitle">
-            Each capability block below presents core technical behavior, operational differentiators, and
-            validated product evidence from mobile and web workflows.
+            Each operating domain below shows what Koru does, why it matters in production, and the product
+            proof captured from live mobile and web workflows.
           </p>
 
           <div className="capability-stack">

@@ -15,7 +15,7 @@ export function HomePage() {
           <Link to="/contact" className="cta-button">
             Book a Demo
           </Link>
-          <Link to="/capabilities" className="cta-link">
+          <Link to="/solutions/koru" className="cta-link">
             Explore Full Capabilities
           </Link>
         </div>
@@ -161,7 +161,7 @@ export function HomePage() {
               <Link to="/contact" className="cta-button">
                 Schedule a 30-Min Demo
               </Link>
-              <Link to="/capabilities" className="cta-link">
+              <Link to="/solutions/koru" className="cta-link">
                 Explore All 15 Capabilities
               </Link>
             </div>

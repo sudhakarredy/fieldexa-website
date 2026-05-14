@@ -2,7 +2,6 @@ export const navItems = [
   { label: 'Home', path: '/' },
   { label: 'Solutions', path: '/solutions' },
   { label: 'Platform', path: '/platform' },
-  { label: 'Capabilities', path: '/capabilities' },
   { label: 'Impact', path: '/impact' },
   { label: 'Case Studies', path: '/case-studies' },
   { label: 'About', path: '/about' },
@@ -200,29 +199,34 @@ export const solutionTracks = [
 
 export const platformModules = [
   {
-    title: 'Farmer and Farm Records',
+    title: 'Farmer Identity Control Plane',
     description:
-      'Create a reliable system of record for growers, plots, relationships, and operating context across the season.',
+      'A single farmer master record ties KYC references, bank metadata, communication readiness, and all operational transactions back to one controlled identity.',
   },
   {
-    title: 'Agreements, Inputs, and Harvest',
+    title: 'Farm Polygons and EUDR Readiness',
     description:
-      'Track linked operational milestones from agreement setup through input distribution and harvest capture.',
+      'PostGIS-backed farm geometry, acreage, and location metadata provide the geospatial foundation for deforestation compliance, segmentation, and traceability.',
   },
   {
-    title: 'Field Visits and Alerts',
+    title: 'Agreement and Seasonal Contract Layer',
     description:
-      'Record field observations, route issues to the right teams, and follow actions through completion.',
+      'Per-farm seasonal agreements connect crop, grade-rate, sowing date, and commercial terms so every downstream harvest and input record has contractual context.',
   },
   {
-    title: 'Role-Based Reporting',
+    title: 'Operational Harvest and Input Ledger',
     description:
-      'Support managers, coordinators, and operations leads with views tailored to oversight and execution needs.',
+      'Harvests, inputs, manifests, and field activities are recorded as linked operational events, giving supervisors a live ledger instead of disconnected spreadsheets.',
   },
   {
-    title: 'Mobile-Assisted Operations',
+    title: 'Delivery Stack and Sync Foundation',
     description:
-      'Enable field workflows that support distributed execution where teams need timely data capture and follow-up.',
+      'React 18 web operations, FastAPI services, PostgreSQL + PostGIS, and an offline-first mobile sync queue create a resilient cloud-native operating stack.',
+  },
+  {
+    title: 'Enterprise Security and Tenant Isolation',
+    description:
+      'Row-level security, RBAC, secure token lifecycles, and API-governed access boundaries keep multi-client deployments enterprise-ready from day one.',
   },
 ]
 

@@ -308,6 +308,10 @@ h2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.platform-tech-grid {
+  margin-top: 1.4rem;
+}
+
 .platform-architecture-card {
   margin: 0;
   background: rgba(255, 255, 255, 0.9);
@@ -322,6 +326,31 @@ h2 {
   width: 100%;
   height: auto;
   border-radius: 18px;
+}
+
+.solutions-hub-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+  align-items: start;
+}
+
+.solution-hub-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  padding: 1.3rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.solution-hub-card-primary {
+  background: linear-gradient(135deg, rgba(31, 166, 122, 0.1), rgba(255, 255, 255, 0.96));
+  border-color: rgba(31, 166, 122, 0.32);
+}
+
+.solution-hub-card h2 {
+  margin-bottom: 0.7rem;
 }
 
 .capability-stack {
@@ -1041,6 +1070,10 @@ button.capability-card {
   }
 
   .platform-module-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .solutions-hub-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
